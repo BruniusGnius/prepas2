@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@700&family=Saira:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@700&family=Saira:wght@500;700&display=swap"
         rel="stylesheet">
 
     <!-- Scripts de Animación -->
@@ -39,6 +39,9 @@
                         'brand-yellow-dark': '#1F1A00',
                         'brand-purple-dark': '#161321',
                         'brand-cyan-dark': '#0F1F24',
+                        'brand-blue': '#0f2036',
+                        'brand-dark-blue': '#010526',
+                        'brand-pure-black': '#000'
                     },
                     fontFamily: {
                         'sans': ['Saira', 'sans-serif'],
@@ -77,7 +80,7 @@
                         <div class="hidden md:block">
                             <a href="#cta"
                                 class="text-brand-light hover:text-brand-gold font-bold transition-colors whitespace-nowrap">
-                                Sesión para Directores
+                                Item 1
                             </a>
                         </div>
                     </div>
@@ -149,10 +152,10 @@
         </div>
 
         <div class="relative z-10 w-full container mx-auto px-6 md:px-12 lg:px-16">
-            <div class="max-w-xl text-center lg:text-left border-2 border-brand-cyan">
+            <div class="max-w-xl text-center lg:text-left ">
 
                 <h1 class="font-display font-bold text-2xl md:text-3xl text-brand-light">
-                    Tus alumnos ya están usando IA pero...
+                    Tus alumnos ya están usando&nbsp;IA&nbsp;pero...
                 </h1>
 
                 <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-brand-light mt-4">
@@ -205,8 +208,10 @@
                                 <p class="font-display text-lg uppercase tracking-widest text-brand-action-blue">Conoce
                                 </p>
                                 <h2
-                                    class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-brand-gold mt-4 leading-tight">
-                                    InteligencIA<br>para el Bien es...
+                                    class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-brand-light mt-4 leading-tight">
+                                    Inteligenc<span class="text-brand-gold">IA</span><br>para el <span
+                                        class="text-brand-gold">Bien</span>
+                                    es...
                                 </h2>
                             </div>
 
@@ -239,17 +244,20 @@
 
 
 
-        <!-- ======== CALL TO ACTION 1 (ESTILO HERO) ======== -->
-        <section id="cta" class="relative py-20 sm:py-24">
+        <!-- ======== CALL TO ACTION 1 (CON PARALLAX) ======== -->
+        <section id="cta" class="relative py-20 sm:py-24 overflow-hidden mt-16">
             <div class="absolute inset-0">
-                <img src="https://picsum.photos/seed/cta-hero/1800/600" alt="Fondo abstracto de red neuronal."
-                    class="w-full h-full object-cover">
+                <!-- Se añade un ID y se escala la imagen -->
+                <img id="cta-background" src="assets/expositores-cta.jpg" alt="Fondo abstracto de red neuronal."
+                    class="w-full h-full object-cover scale-120">
                 <div class="absolute inset-0 bg-brand-dark opacity-60"></div>
             </div>
             <div class="relative container mx-auto px-6 lg:px-8 text-center text-brand-light">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold">Únete a la sesión “InteligencIA para el Bien”
+                <h2 class="font-display text-3xl sm:text-4xl font-bold">Únete a la sesión Inteligenc<span
+                        class="text-brand-gold">IA</span> para
+                    el <span class="text-brand-gold">Bien</span>
                 </h2>
-                <p class="mt-2 text-xl max-w-3xl mx-auto text-brand-muted">Una conversación exclusiva para directores
+                <p class="mt-8 text-xl max-w-3xl mx-auto ">Una conversación exclusiva para directores
                     que quieren liderar la innovación educativa con propósito.</p>
                 <a href="#"
                     class="mt-8 inline-block bg-brand-action-blue text-white font-bold text-lg px-10 py-4 rounded-lg shadow-lg hover:bg-brand-action-blue-hover transition-colors"
@@ -261,98 +269,130 @@
         <!-- ======== PROBLEM (URGENCIA) ======== -->
         <section class=" bg-brand-dark py-24 sm:py-32">
             <div class="container mx-auto px-6 lg:px-8">
-                <div class="max-w-6xl mx-auto">
-                    <img src="https://picsum.photos/seed/future/1200/600"
-                        alt="Gráfica abstracta mostrando un crecimiento acelerado."
-                        class="w-full aspect-[16/8] object-cover rounded-lg shadow-2xl mb-12">
-                </div>
-                <div class="text-center max-w-4xl mx-auto">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-brand-light">No es el futuro lo
-                        que se
-                        acelera: <br>es la <em class="text-brand-danger">brecha</em> entre quienes usan la IA y
-                        quienes
-                        no saben cómo enseñarla.</h2>
-                    <p class="mt-6 text-xl text-brand-muted">Más del 40% de lo que hoy enseñamos en prepa ya
-                        puede
-                        hacerlo una IA. Las señales están en todas partes:</p>
-                </div>
-                <div class="mt-20 max-w-6xl mx-auto flex flex-col md:flex-row justify-center gap-8">
-                    <div
-                        class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-danger/10 rounded-lg p-6 border-t-8 border-brand-danger shadow-xl hover:scale-105 transition-transform duration-300">
-                        <p class="font-bold text-brand-light text-xl">Accenture</p>
-                        <p class="font-display text-7xl font-bold text-brand-danger my-2">11,000</p>
-                        <p class="text-xl font-bold text-brand-danger">empleados despedidos</p>
-                        <p class="mt-1 text-brand-muted">por no adaptarse a la IA.</p>
+                <div class="container mx-auto px-6 lg:px-8">
+
+                    <!-- CONTENEDOR DE LA IMAGEN (NUEVO) -->
+                    <!-- Este div actúa como una 'ventana'. El 'overflow-hidden' recorta la imagen que crece. -->
+                    <div id="zoom-container" class="max-w-6xl mx-auto rounded-lg shadow-2xl mb-12 overflow-hidden">
+                        <img id="zoom-image" src="assets/construccion-app-vibe-coding.jpg"
+                            alt="Gráfica abstracta mostrando un crecimiento acelerado."
+                            class="w-full aspect-[16/8] object-cover" style="transform-origin: 50% 30%;">
+                        <!-- El 'transform-origin' ajusta el foco del zoom (50% centro, 30% un poco arriba) -->
                     </div>
-                    <div
-                        class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-danger/10 rounded-lg p-6 border-t-8 border-brand-danger shadow-xl hover:scale-105 transition-transform duration-300">
-                        <p class="font-bold text-brand-light text-xl">Salesforce</p>
-                        <p class="font-display text-7xl font-bold text-brand-danger my-2">4,000</p>
-                        <p class="text-xl font-bold text-brand-danger">puestos eliminados</p>
-                        <p class="mt-1 text-brand-muted">reemplazados por agentes inteligentes.</p>
+
+
+                    <div class="text-center max-w-4xl mx-auto">
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold text-brand-light">No es el futuro
+                            lo&nbsp;que&nbsp;se&nbsp;acelera: <br>es la <em class="text-brand-danger">brecha</em> entre
+                            quienes&nbsp;usan la IA<br>y
+                            quienes no saben cómo enseñarla.</h2>
+                        <p class="mt-6 text-xl text-brand-muted">Más del 40% de lo que hoy enseñamos en prepa ya
+                            puede
+                            hacerlo una IA.</p>
+                        <h2 class="mt-16 font-display text-3xl sm:text-4xl font-bold text-brand-danger">Las señales
+                            están en
+                            todas&nbsp;partes:</h2>
                     </div>
-                    <div
-                        class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-danger/10 rounded-lg p-6 border-t-8 border-brand-danger shadow-xl hover:scale-105 transition-transform duration-300">
-                        <p class="font-bold text-brand-light text-xl">IBM, Autodesk, SAP</p>
-                        <p class="font-display text-7xl font-bold text-brand-danger my-2">Miles</p>
-                        <p class="text-xl font-bold text-brand-danger">de roles reestructurados</p>
-                        <p class="mt-1 text-brand-muted">hacia la automatización.</p>
+                    <div class="mt-20 max-w-6xl mx-auto flex flex-col md:flex-row justify-center gap-8">
+                        <div
+                            class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-danger/10 rounded-lg p-6 border-t-8 border-brand-danger shadow-xl hover:scale-105 transition-transform duration-300">
+                            <p class="font-bold text-brand-light text-xl">Accenture</p>
+                            <p id="counter-1" class="font-display text-7xl font-bold text-brand-danger my-2">0</p>
+                            <p class="text-xl font-bold text-brand-danger">empleados despedidos</p>
+                            <p class="mt-1 text-brand-muted">por no adaptarse a la IA.</p>
+                        </div>
+                        <div
+                            class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-danger/10 rounded-lg p-6 border-t-8 border-brand-danger shadow-xl hover:scale-105 transition-transform duration-300">
+                            <p class="font-bold text-brand-light text-xl">Salesforce</p>
+                            <p id="counter-2" class="font-display text-7xl font-bold text-brand-danger my-2">0</p>
+                            <p class="text-xl font-bold text-brand-danger">puestos eliminados</p>
+                            <p class="mt-1 text-brand-muted">reemplazados por agentes inteligentes.</p>
+                        </div>
+                        <div
+                            class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-danger/10 rounded-lg p-6 border-t-8 border-brand-danger shadow-xl hover:scale-105 transition-transform duration-300">
+                            <p class="font-bold text-brand-light text-xl">IBM, Autodesk, SAP</p>
+                            <!-- CORRECCIÓN: Se ha eliminado 'opacity-0' de esta línea -->
+                            <p id="counter-3" class="font-display text-7xl font-bold text-brand-danger my-2">Miles</p>
+                            <p class="text-xl font-bold text-brand-danger">de roles reestructurados</p>
+                            <p class="mt-1 text-brand-muted">hacia la automatización.</p>
+                        </div>
+                    </div>
+                    <div class="mt-20 text-center max-w-3xl mx-auto">
+                        <p class="font-display text-2xl sm:text-3xl text-brand-light">Si las corporaciones más
+                            grandes del
+                            mundo están transformando su talento…</p>
+                        <p class="mt-4 font-display text-2xl sm:text-3xl text-brand-gold">¿Cómo aseguramos que tus
+                            estudiantes tengan las competencias para prosperar en este nuevo mundo?</p>
                     </div>
                 </div>
-                <div class="mt-20 text-center max-w-3xl mx-auto">
-                    <p class="font-display text-2xl sm:text-3xl text-brand-light">Si las corporaciones más
-                        grandes del
-                        mundo están transformando su talento…</p>
-                    <p class="mt-4 font-display text-2xl sm:text-3xl text-brand-gold">¿Cómo aseguramos que tus
-                        estudiantes tengan las competencias para prosperar en este nuevo mundo?</p>
-                </div>
-            </div>
         </section>
 
         <!-- ======== SOLUTION ======== -->
-        <section class="bg-brand-navy py-24 sm:py-32">
+        <section class="bg-brand-dark-blue py-24 sm:py-32">
             <div class="container mx-auto px-6 lg:px-8">
                 <div class="text-center max-w-4xl mx-auto">
                     <p class="font-bold text-brand-action-blue uppercase tracking-widest">La respuesta:</p>
                     <h2 class="mt-2 font-display text-4xl sm:text-5xl font-bold text-brand-light">Enseñar competencias
-                        que ninguna IA puede reemplazar.</h2>
+                        que ninguna&nbsp;IA puede&nbsp;reemplazar.</h2>
                 </div>
                 <div class="mt-20 flex flex-col lg:flex-row items-center gap-12">
                     <div class="lg:w-1/2">
                         <p class="text-xl lg:text-2xl text-brand-muted mb-8">En Gnius Club diseñamos <strong
-                                class="text-brand-gold">InteligencIA para el Bien</strong>, el primer programa AI First
+                                class="text-brand-gold">Inteligenc<span class="text-brand-light">IA</span> para el
+                                <span class="text-brand-light">Bien</span></strong>, el primer programa <strong>
+                                <span class="text-brand-gold">AI First</span>
+                            </strong>
                             que enseña a tus alumnos a usar la IA como un acelerador de pensamiento, no como un
                             sustituto de él.</p>
                         <h3 class="font-display text-3xl font-bold text-brand-light">Nuestro enfoque:</h3>
-                        <div class="mt-6 space-y-5 text-lg">
-                            <div class="flex items-start gap-4"><svg
-                                    class="w-7 h-7 mt-1 text-brand-action-blue flex-shrink-0" fill="currentColor"
+                        <div class="mt-8 space-y-6">
+
+                            <div class="flex items-center gap-4 p-4 bg-brand-dark/30 rounded-lg">
+                                <svg class="w-8 h-8 text-brand-action-blue flex-shrink-0" fill="currentColor"
                                     viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                         clip-rule="evenodd"></path>
-                                </svg><span><strong class="text-brand-light">La IA no sustituye al alumno</strong> → Lo
-                                    potencia.</span></div>
-                            <div class="flex items-start gap-4"><svg
-                                    class="w-7 h-7 mt-1 text-brand-action-blue flex-shrink-0" fill="currentColor"
+                                </svg>
+                                <div class="flex-grow text-xl lg:text-2xl text-brand-light">La IA no sustituye al alumno
+                                </div>
+                                <div
+                                    class="font-display text-2xl lg:text-3xl text-brand-cyan uppercase font-bold text-right">
+                                    Lo potencia</div>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-4 bg-brand-dark/30 rounded-lg">
+                                <svg class="w-8 h-8 text-brand-action-blue flex-shrink-0" fill="currentColor"
                                     viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                         clip-rule="evenodd"></path>
-                                </svg><span><strong class="text-brand-light">No reemplaza al maestro</strong> → Lo
-                                    amplifica.</span></div>
-                            <div class="flex items-start gap-4"><svg
-                                    class="w-7 h-7 mt-1 text-brand-action-blue flex-shrink-0" fill="currentColor"
+                                </svg>
+                                <div class="flex-grow text-xl lg:text-2xl text-brand-light">No reemplaza al maestro
+                                </div>
+                                <div
+                                    class="font-display text-2xl lg:text-3xl text-brand-cyan uppercase font-bold text-right">
+                                    Lo amplifica</div>
+                            </div>
+
+                            <div class="flex items-center gap-4 p-4 bg-brand-dark/30 rounded-lg">
+                                <svg class="w-8 h-8 text-brand-action-blue flex-shrink-0" fill="currentColor"
                                     viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                         clip-rule="evenodd"></path>
-                                </svg><span><strong class="text-brand-light">No elimina el pensamiento crítico</strong>
-                                    → Lo hace indispensable.</span></div>
+                                </svg>
+                                <div class="flex-grow text-xl lg:text-2xl text-brand-light">No elimina el pensamiento
+                                    crítico</div>
+                                <div
+                                    class="font-display text-2xl lg:text-3xl text-brand-cyan uppercase font-bold text-right">
+                                    Lo hace indispensable</div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="lg:w-1/2">
-                        <img src="https://picsum.photos/seed/solutionimg/800/600"
+                        <img src="assets/exposicion-app-builder.jpg"
                             alt="Estudiante colaborando con una interfaz de inteligencia artificial."
                             class="rounded-lg shadow-xl w-full">
                     </div>
@@ -363,8 +403,7 @@
                     <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
                         <div
                             class="bg-brand-yellow-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-yellow transition-transform duration-300 hover:scale-105">
-                            <img src="https://picsum.photos/seed/pilar-img1/400/400"
-                                alt="Ilustración de ingeniería aplicada"
+                            <img src="assets/ingenieria.jpg" alt="Ilustración de ingeniería aplicada"
                                 class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover">
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-yellow">Ingeniería aplicada</h4>
@@ -386,8 +425,7 @@
                         </div>
                         <div
                             class="bg-brand-purple-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-purple transition-transform duration-300 hover:scale-105">
-                            <img src="https://picsum.photos/seed/pilar-img2/400/400"
-                                alt="Ilustración de automatización de agentes"
+                            <img src="assets/automatizacion.png" alt="Ilustración de automatización de agentes"
                                 class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover">
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-purple">Automatización de agentes</h4>
@@ -409,9 +447,8 @@
                         </div>
                         <div
                             class="bg-brand-cyan-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-cyan transition-transform duration-300 hover:scale-105">
-                            <img src="https://picsum.photos/seed/pilar-img3/400/400"
-                                alt="Ilustración de desarrollo con IA"
-                                class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover">
+                            <img src="assets/desarrollo.png" alt="Ilustración de desarrollo con IA"
+                                class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover bottom-0">
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-cyan">Desarrollo con IA</h4>
                                 <div class="my-6 border-t border-brand-cyan/30"></div>
@@ -434,69 +471,101 @@
             </div>
         </section>
 
-        <!-- ======== TEACHER AUGMENTATION ======== -->
-        <section class="bg-brand-dark py-24 sm:py-32">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="flex flex-col lg:flex-row lg:items-start gap-16 lg:gap-24">
-                    <div class="lg:w-1/3">
-                        <div class="lg:sticky top-28">
-                            <h2 class="font-display text-4xl font-bold text-brand-light">La IA no reemplaza al maestro.
-                                Lo
-                                ayuda a enseñar mejor.</h2>
-                            <p class="mt-6 text-lg text-brand-muted">La pedagogía aumentada de Gnius Club permite que
-                                cada
-                                docente adapte el ritmo y la profundidad del aprendizaje a cada alumno, gracias a
-                                agentes
-                                inteligentes que analizan avances, intereses y desafíos.</p>
-                        </div>
+        <!-- ======== TEACHER AUGMENTATION (CON PARALLAX CORREGIDO FINAL) ======== -->
+        <section id="teacher-augmentation-section" class="relative bg-brand-dark py-24 sm:py-32 overflow-hidden">
+
+            <!-- Contenedor del Fondo Parallax (Capa 0) -->
+            <div class="absolute inset-0 z-0 flex items-start lg:items-center justify-center">
+                <!-- CORRECCIÓN: Se reemplaza 'h-full' por 'min-w-full min-h-full' para asegurar cobertura total -->
+                <img id="teacher-parallax-bg" src="assets/profesor-augmentado.png"
+                    alt="Profesor aumentado en un entorno educativo moderno."
+                    class="w-full min-w-full min-h-full object-cover scale-200  lg:scale-150">
+                <!-- NOTA: Reduje un poco el scale a 150% para un efecto más sutil, pero puedes volver a 160% si lo prefieres -->
+                <div class="absolute inset-0 bg-brand-dark opacity-80"></div>
+            </div>
+
+            <!-- Contenedor del Contenido (Capa 1) -->
+            <div class="relative z-10">
+                <div class="container mx-auto px-6 lg:px-8">
+
+                    <!-- Titular Principal de la Sección -->
+                    <div class="text-center max-w-4xl mx-auto mb-24">
+                        <h2 class="font-display text-4xl sm:text-5xl font-bold text-brand-light">La IA no reemplaza al
+                            maestro. <br>Lo ayuda a enseñar mejor.</h2>
                     </div>
-                    <div class="lg:w-2/3">
-                        <div class="space-y-16">
-                            <h3 class="font-display text-3xl font-bold text-brand-light">El resultado:</h3>
-                            <div class="flex items-start gap-6">
-                                <svg class="w-12 h-12 text-brand-action-blue flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                    <path
-                                        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z">
-                                    </path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v7a2 2 0 002 2h18a2 2 0 002-2v-7">
-                                    </path>
-                                </svg>
-                                <div>
-                                    <h4 class="font-bold text-2xl text-brand-light">Clases más personalizadas</h4>
-                                    <p class="mt-2 text-lg text-brand-muted">Adapta el ritmo y la profundidad a cada
-                                        estudiante, asegurando que nadie se quede atrás.</p>
-                                </div>
+
+                    <!-- Contenedor Flex para las columnas con efecto sticky -->
+                    <div class="flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-24">
+
+                        <!-- Columna Izquierda (Fija en Desktop) -->
+                        <div class="lg:w-1/3">
+                            <div class="lg:sticky top-28">
+                                <p class="text-xl md:text-3xl text-brand-muted"><strong>La pedagogía aumentada</strong>
+                                    de Gnius
+                                    Club permite que
+                                    cada
+                                    docente adapte el ritmo y la profundidad del aprendizaje a cada alumno, gracias a
+                                    agentes
+                                    inteligentes que analizan avances, intereses y desafíos.</p>
                             </div>
-                            <div class="flex items-start gap-6">
-                                <svg class="w-12 h-12 text-brand-action-blue flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
-                                    </path>
-                                </svg>
-                                <div>
-                                    <h4 class="font-bold text-2xl text-brand-light">Profesores más enfocados en
-                                        enseñar, no en improvisar</h4>
-                                    <p class="mt-2 text-lg text-brand-muted">Los agentes de IA se encargan del trabajo
-                                        pesado, liberando tiempo para que los maestros se dediquen a lo que mejor saben
-                                        hacer: inspirar.</p>
+                        </div>
+
+                        <!-- Columna Derecha (Contenido con Scroll) -->
+                        <div class="lg:w-2/3">
+                            <div class="space-y-16 max-w-2xl">
+                                <h3 class="font-display text-3xl font-bold text-brand-light">El resultado:</h3>
+
+                                <div class="flex items-start gap-6">
+                                    <svg class="w-12 h-12 text-brand-action-blue flex-shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                        <path
+                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v7a2 2 0 002 2h18a2 2 0 002-2v-7">
+                                        </path>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-bold text-2xl text-brand-light">Clases más personalizadas</h4>
+                                        <p class="mt-2 text-xl text-brand-muted">Adapta el ritmo y la profundidad a cada
+                                            estudiante, asegurando que nadie se quede atrás.</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex items-start gap-6">
-                                <svg class="w-12 h-12 text-brand-action-blue flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                                    </path>
-                                </svg>
-                                <div>
-                                    <h4 class="font-bold text-2xl text-brand-light">Alumnos más comprometidos,
-                                        curiosos y creativos</h4>
-                                    <p class="mt-2 text-lg text-brand-muted">Cuando el aprendizaje se siente relevante
-                                        y personalizado, la curiosidad y la creatividad florecen de forma natural.</p>
+
+                                <div class="flex items-start gap-6">
+                                    <svg class="w-12 h-12 text-brand-action-blue flex-shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                        </path>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-bold text-2xl text-brand-light">Profesores más enfocados en
+                                            enseñar, no en improvisar</h4>
+                                        <p class="mt-2 text-xl text-brand-muted">Los agentes de IA se encargan del
+                                            trabajo
+                                            pesado, liberando tiempo para que los maestros se dediquen a lo que mejor
+                                            saben
+                                            hacer: inspirar.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-6">
+                                    <svg class="w-12 h-12 text-brand-action-blue flex-shrink-0" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                                        </path>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-bold text-2xl text-brand-light">Alumnos más comprometidos,
+                                            curiosos y creativos</h4>
+                                        <p class="mt-2 text-xl text-brand-muted">Cuando el aprendizaje se siente
+                                            relevante
+                                            y personalizado, la curiosidad y la creatividad florecen de forma natural.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -506,13 +575,14 @@
         </section>
 
         <!-- ======== SOCIAL PROOF (WSA/ONU) - SECCIÓN 1: PREMIO ======== -->
-        <section class="bg-brand-navy py-24 sm:py-32">
+        <section class="bg-brand-blue py-24 sm:py-32">
             <div class="container mx-auto px-6 lg:px-8">
                 <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
-                    <img src="https://picsum.photos/seed/wsalogo/400/100" alt="Logo del World Summit Award de la ONU"
+                    <img src="assets/logo-white.svg" alt="Logo del World Summit Award de la ONU"
                         class="h-auto w-3/5 max-w-xs sm:w-48 md:w-60">
                     <p class="mt-8 font-display font-bold text-3xl sm:text-4xl text-brand-light">
-                        Reconocido por la <em class="text-brand-gold">World Summit Award de la ONU</em> como referente
+                        Reconocido por la <em class="text-brand-gold">World Summit Award de la&nbsp;ONU</em> como
+                        referente
                         en innovación educativa.
                     </p>
                 </div>
@@ -522,14 +592,16 @@
         <!-- ======== SOCIAL PROOF (WSA/ONU) - SECCIÓN 2: DETALLES ======== -->
         <section class="bg-brand-dark py-24 sm:py-32">
             <div class="container mx-auto px-6 lg:px-8 text-center flex flex-col items-center">
-                <img src="https://picsum.photos/seed/classroom/1200/600"
+                <img src="assets/tech4good.png"
                     alt="Salón de clases con estudiantes preparatorianos trabajando en sus laptops."
                     class="rounded-lg shadow-xl aspect-[16/8] object-cover w-full max-w-6xl">
                 <div class="max-w-4xl mx-auto mt-16">
                     <p class="text-xl text-brand-muted">Con presencia en escuelas de México y Latinoamérica, Gnius Club
-                        lidera la integración de tecnología, ética y creatividad en el aula. Su programa Tech4Good ha
+                        lidera la integración de tecnología, ética y creatividad en el aula. Su programa
+                        <strong class="text-brand-danger">TECH4GOOD</strong> ha
                         sido premiado internacionalmente por demostrar que la innovación educativa puede tener propósito
-                        social.</p>
+                        social.
+                    </p>
                     <p class="mt-6 text-xl text-brand-light"><strong>Ahora, ese conocimiento llega a tu colegio para que
                             tu clase de tecnología se convierta en el espacio más relevante del futuro escolar.</strong>
                     </p>
@@ -537,19 +609,44 @@
             </div>
         </section>
 
-        <!-- ======== REMATE Y CTA FINAL ======== -->
-        <section class="py-24 sm:py-32 bg-brand-navy">
-            <div class="container mx-auto px-6 lg:px-8 text-center">
-                <h2 class="font-display text-4xl sm:text-5xl font-bold text-brand-light max-w-4xl mx-auto">El futuro no
-                    espera. <br>Tus alumnos tampoco deberían.</h2>
-                <p class="mt-6 text-2xl text-brand-muted max-w-3xl mx-auto">La revolución educativa no empieza con más
-                    materias, sino con una sola clase capaz de transformar la mentalidad de tus alumnos.</p>
-                <p class="mt-4 text-2xl font-bold text-brand-gold max-w-3xl mx-auto">Esa clase ya existe. InteligencIA
-                    para el Bien, de Gnius Club.</p>
-                <div class="mt-16">
-                    <a href="#"
-                        class="inline-block bg-brand-action-blue text-white font-bold text-xl px-12 py-5 rounded-lg shadow-lg shadow-glow-blue hover:bg-brand-action-blue-hover transition-all">Únete
-                        y Transforma tu Colegio</a>
+        <!-- ======== REMATE Y CTA FINAL (CON TIPOGRAFÍA CORREGIDA) ======== -->
+        <section id="remate-section"
+            class="relative flex justify-center items-center lg:justify-start aspect-[9/15] md:aspect-square lg:aspect-[16/8] overflow-hidden">
+
+            <!-- Contenedor de la Imagen de Fondo y Capas -->
+            <div class="absolute inset-0">
+                <img id="remate-background" src="assets/chicos-desarrollando-apps.png"
+                    alt="Un entorno educativo del futuro." class="w-full h-full object-cover scale-110">
+                <div class="absolute inset-0 bg-brand-dark/80 mix-blend-multiply lg:hidden"></div>
+                <div
+                    class="hidden absolute inset-0 lg:block bg-gradient-to-r from-brand-dark via-brand-dark/60 to-transparent mix-blend-multiply">
+                </div>
+            </div>
+
+            <!-- Contenedor del Contenido de Texto -->
+            <div class="relative z-10 w-full container mx-auto px-6 md:px-12 lg:px-16">
+                <div class="max-w-xl text-center lg:text-left">
+                    <h2 class="font-display text-4xl sm:text-5xl font-bold text-brand-light">El futuro no espera.
+                        <br>Tus alumnos tampoco deberían.
+                    </h2>
+                    <p class="mt-8 text-2xl text-brand-muted">La revolución educativa no empieza con más materias, sino
+                        con una sola clase capaz de transformar la mentalidad de tus alumnos.</p>
+
+                    <!-- FRASE CORREGIDA: MÁS GRANDE Y CON ESTILO DE MARCA -->
+                    <h3 class="mt-6 font-display text-3xl font-bold text-brand-light max-w-3xl mx-auto lg:mx-0">
+                        Esa clase ya existe:
+                    </h3>
+                    <h2 class="mt-6 font-display text-4xl font-bold text-brand-gold max-w-3xl mx-auto lg:mx-0">
+                        Inteligenc<span class="text-brand-light">IA</span> para el <span
+                            class="text-brand-light">Bien</span>,
+                        de&nbsp;<span class="text-brand-light">Gnius&nbsp;Club.</span>
+                    </h2>
+
+                    <div class="mt-16">
+                        <a href="#"
+                            class="inline-block bg-brand-action-blue text-white font-bold text-xl px-12 py-5 rounded-lg shadow-lg shadow-glow-blue hover:bg-brand-action-blue-hover transition-all">Únete
+                            y Transforma tu Colegio</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -557,11 +654,11 @@
     </main>
 
     <!-- ======== FOOTER ======== -->
-    <footer class="py-12 border-t border-brand-navy/50">
+    <footer class="py-12 border-t border-brand-navy/50 bg-brand-pure-black">
         <div class="container mx-auto px-6 lg:px-8 text-center">
             <a href="#" aria-label="Página de inicio de Gnius Club">
-                <img src="https://picsum.photos/seed/gniuslogofooterwhite/200/50" alt="Logo de Gnius Club"
-                    class="h-10 w-auto mx-auto">
+                <img src="assets/logo-animado-gnius-moderno-blackv2.gif" alt="Logo de Gnius Club"
+                    class="h-32 w-auto mx-auto">
             </a>
             <div class="mt-6 flex justify-center space-x-6 text-brand-muted">
                 <a href="#" class="hover:text-brand-light transition-colors">Términos y Condiciones</a>
@@ -577,4 +674,3 @@
 </body>
 
 </html>
-"
