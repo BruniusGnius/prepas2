@@ -8,7 +8,8 @@
 
     <!-- ============== RECURSOS EXTERNOS ============== -->
     <!-- PRELOAD DEL VIDEO -->
-    <link rel="preload" as="video" href="/assets/AdolescenteIAv2.mp4" type="video/mp4">
+    <link rel="preload" as="video" href="https://sorry-db.gnius.club/assets/adolescente-iav2.mp4" type="video/mp4">
+    <link rel="preload" as="video" href="https://sorry-db.gnius.club/assets/adolescente-iav2.webm" type="video/mp4">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -195,8 +196,12 @@
             <div class="lg:sticky top-0 h-auto lg:h-screen overflow-hidden">
 
                 <!-- Video de fondo (Capa 0) -->
-                <video id="bg-video" src="https://sorry-db.gnius.club/assets/adolescente-iav2.mp4" playsinline muted
-                    preload="auto" class="absolute inset-0 w-full h-full object-cover"></video>
+                <video id="scrub-video" class="w-full h-full object-cover" playsinline muted preload="auto">
+                    <!-- Primero intentamos cargar el WebM (Más ligero) -->
+                    <source src="https://sorry-db.gnius.club/assets/adolescente-iav2.webm" type="video/webm">
+                    <!-- Si falla, cargamos el MP4 (Compatible) -->
+                    <source src="https://sorry-db.gnius.club/assets/adolescente-iav2.mp4" type="video/mp4">
+                </video>
 
                 <!-- Overlay oscuro (Capa 1) -->
                 <div class="absolute inset-0 bg-brand-dark/80"></div>
