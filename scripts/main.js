@@ -109,8 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 1. FUNCIÓN DE PRECARGA FORZADA (Técnica del artículo)
     const forceVideoLoad = (videoElement) => {
-      const srcWebm = "assets/adolescente-iav3.webm";
-      const srcMp4 = "assets/adolescente-iav3.mp4";
+      const srcWebm =
+        "https://sorry-db.gnius.club/assets/gnius-club-video-inteligencia-para-el-bien-optimizado.webm";
+      const srcMp4 =
+        "https://sorry-db.gnius.club/assets/gnius-club-video-inteligencia-para-el-bien-optimizado.mp4";
 
       // Usamos la API Fetch para descargar el video como un 'blob'
       fetch(srcWebm)
