@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- LÓGICA DEL PARALLAX DEL HERO (RESPONSIVO) ---
+  // --- LÓGICA DEL PARALLAX DEL HERO ---
   const heroBackground = document.getElementById("hero-background");
   if (heroBackground) {
     ScrollTrigger.matchMedia({
@@ -83,9 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const teacherBg = document.getElementById("teacher-parallax-bg");
   if (teacherBg) {
     ScrollTrigger.matchMedia({
+      // Solo activa la animación en pantallas 'lg' (1024px) y superiores
       "(min-width: 1024px)": function () {
         gsap.to(teacherBg, {
-          yPercent: -20,
+          yPercent: -20, // Mueve la imagen hacia arriba un 20%
           ease: "none",
           scrollTrigger: {
             trigger: "#teacher-augmentation-section",
@@ -98,11 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- SCROLLYTELLING: VIDEO SCRUBBING (CON EL EVENTO CORRECTO) ---
+  // --- SCROLLYTELLING: VIDEO SCRUBBING ---
   const video = document.getElementById("bg-video");
   if (video) {
-    // CORRECCIÓN: Usamos 'canplaythrough' para asegurar que el video esté suficientemente cargado
-    video.addEventListener("canplaythrough", () => {
+    video.addEventListener("loadedmetadata", () => {
       gsap.to(video, {
         currentTime: video.duration,
         ease: "none",
