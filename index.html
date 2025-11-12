@@ -188,35 +188,22 @@
 
 
 
-        <!-- ======== SECCIÓN "CONOCE INTELIGENCIA PARA EL BIEN" (CON FALLBACK Y OVERLAY PARA MÓVIL) ======== -->
-        <section id="video-scrub-section" class="relative bg-brand-dark py-16 lg:py-0 lg:h-[300vh]">
+        <!-- ======== SECCIÓN "CONOCE INTELIGENCIA PARA EL BIEN" (VERSIÓN FINAL Y PROFESIONAL) ======== -->
+        <section class="scrub-video-wrapper relative bg-brand-dark lg:h-[300vh]">
 
-            <!-- Contenedor sticky que SOLO se activa en desktop -->
-            <div class="lg:sticky top-0 h-auto lg:h-screen overflow-hidden">
+            <!-- Contenedor sticky que se activa en desktop -->
+            <div class="lg:sticky top-0 h-screen overflow-hidden">
 
-                <!-- Capa 0: Fondos -->
+                <!-- Video de fondo (Capa 0) -->
+                <video id="bg-video" playsinline muted preload="metadata"
+                    class="absolute inset-0 w-full h-full object-cover"></video>
 
-                <!-- Contenedor para el fondo de móvil/tablet (se oculta en lg) -->
-                <div class="absolute inset-0 lg:hidden">
-                    <img src="assets/profesor-augmentado.png"
-                        alt="Un profesor usando tecnología para aumentar su enseñanza."
-                        class="w-full h-full object-cover">
-                    <!-- Overlay para la imagen de móvil -->
-                    <div class="absolute inset-0 bg-brand-dark/80"></div>
-                </div>
+                <!-- Overlay oscuro (Capa 1) -->
+                <div class="absolute inset-0 bg-brand-dark/80"></div>
 
-                <!-- Contenedor para el fondo de video de desktop (oculto en móvil) -->
-                <div class="hidden lg:block absolute inset-0 z-0">
-                    <video id="bg-video" playsinline muted preload="auto"
-                        class="absolute inset-0 w-full h-full object-cover">
-                        <source
-                            src="https://sorry-db.gnius.club/assets/gnius-club-video-inteligencia-para-el-bien-optimizado.webm"
-                            type="video/webm">
-                        <source
-                            src="https://sorry-db.gnius.club/assets/gnius-club-video-inteligencia-para-el-bien-optimizado.mp4"
-                            type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-brand-dark/80"></div>
+                <!-- Indicador de Carga (se oculta cuando el video está listo) -->
+                <div id="video-loader" class="absolute inset-0 z-20 flex items-center justify-center bg-brand-dark">
+                    <p class="text-brand-muted animate-pulse">Cargando experiencia...</p>
                 </div>
 
                 <!-- Contenido de Texto (Capa 2) -->
@@ -230,8 +217,7 @@
                                 <h2
                                     class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-brand-light mt-4 leading-tight">
                                     Inteligenc<span class="text-brand-gold">IA</span><br>para el <span
-                                        class="text-brand-gold">Bien</span>
-                                    es...
+                                        class="text-brand-gold">Bien</span> es...
                                 </h2>
                             </div>
 
