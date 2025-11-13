@@ -170,22 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- LÓGICA DEL PARALLAX ZOOM EN SECCIÓN 'PROBLEM' ---
-  const zoomContainer = document.getElementById("zoom-container");
-  const zoomImage = document.getElementById("zoom-image");
-  if (zoomContainer && zoomImage) {
-    gsap.to(zoomImage, {
-      scale: 1.15,
-      ease: "none",
-      scrollTrigger: {
-        trigger: zoomContainer,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-  }
-
   // --- LÓGICA DEL PARALLAX DE 'TEACHER AUGMENTATION' (SOLO DESKTOP) ---
   const teacherBg = document.getElementById("teacher-parallax-bg");
   if (teacherBg) {
@@ -205,13 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==================================================================
-  // --- INICIALIZACIÓN DEL VIDEO MANAGER ---
-  // La vieja lógica de scroll del video ha sido reemplazada por esta clase.
-  new ScrubVideoManager();
-  // ==================================================================
-
-  // --- ANIMACIÓN DE CONTADORES CON "IMPACTO DE VIDRIO" ---
+  // --- ANIMACIÓN DE CONTADORES ---
   const shakeCard = (cardElement) => {
     if (!cardElement) return;
     let tl = gsap.timeline();
