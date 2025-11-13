@@ -187,14 +187,18 @@
 
 
 
-        <!-- ======== SECCIÓN "CONOCE INTELIGENCIA PARA EL BIEN" (VERSIÓN FINAL Y PROFESIONAL) ======== -->
+        <!-- ======== SECCIÓN "CONOCE INTELiGENCIA PARA EL BIEN" (VERSIÓN FINAL Y FUNCIONAL) ======== -->
         <section class="scrub-video-wrapper relative bg-brand-dark lg:h-[300vh]">
 
             <!-- Contenedor sticky que se activa en desktop -->
-            <div class="lg:sticky top-0 h-screen overflow-hidden">
+            <!-- CORRECCIÓN: Se añade la clase 'scrub-video-container' que el JS necesita -->
+            <div class="scrub-video-container lg:sticky top-0 h-screen overflow-hidden">
 
                 <!-- Video de fondo (Capa 0) -->
+                <!-- CORRECCIÓN: Se añaden los atributos data-src-* para que el JS los cargue -->
                 <video id="bg-video" playsinline muted preload="metadata"
+                    data-src-webm="assets/gnius-club-video-inteligencia-para-el-bien.webm"
+                    data-src-mp4="assets/gnius-club-video-inteligencia-para-el-bien.mp4"
                     class="absolute inset-0 w-full h-full object-cover"></video>
 
                 <!-- Overlay oscuro (Capa 1) -->

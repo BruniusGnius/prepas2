@@ -1,6 +1,138 @@
 // scripts/main.js
 
+/**
+ * Clase ScrubVideoManager
+ * Inspirada en el tutorial de Chris How.
+ * Gestiona videos que se reproducen hacia adelante y hacia atrás con el scroll.
+ */
+class ScrubVideoManager {
+  constructor() {
+    this.scrubVideoWrappers = document.querySelectorAll(".scrub-video-wrapper");
+    if (this.scrubVideoWrappers.length === 0) return;
+
+    // Solo activar en pantallas de escritorio
+    if (window.innerWidth < 1024) return;
+
+    this.scrubVideoWrappersData = [];
+    this.activeVideoWrapper = null;
+
+    // 1. Crear el IntersectionObserver
+    const observer = new IntersectionObserver(
+      this.intersectionObserverCallback,
+      {
+        threshold: 0.2, // Se activa cuando el 20% del video es visible
+      }
+    );
+    observer.context = this; // Pasar el contexto de la clase al callback
+
+    // 2. Configurar cada contenedor de video
+    this.scrubVideoWrappers.forEach((wrapper, index) => {
+      const videoContainer = wrapper.querySelector(".scrub-video-container");
+      if (videoContainer) {
+        observer.observe(videoContainer);
+      }
+
+      wrapper.setAttribute("data-scrub-video-index", index);
+      const video = wrapper.querySelector("video");
+      const videoLoader = wrapper.querySelector("#video-loader");
+
+      this.scrubVideoWrappersData[index] = { video, videoLoader };
+
+      this.fetchVideo(video);
+    });
+
+    // 3. Calcular y almacenar posiciones
+    this.updateWrapperPositions();
+
+    // 4. Añadir listeners para scroll y resize
+    window.addEventListener("resize", () => this.updateWrapperPositions());
+    document.addEventListener("scroll", (event) =>
+      this.handleScrollEvent(event)
+    );
+  }
+
+  // Carga el video completo usando Fetch para un scrubbing fluido
+  fetchVideo(videoElement) {
+    const srcWebm = videoElement.getAttribute("data-src-webm");
+    const srcMp4 = videoElement.getAttribute("data-src-mp4");
+    const videoLoader = this.scrubVideoWrappersData.find(
+      (d) => d.video === videoElement
+    )?.videoLoader;
+
+    const loadSource = (src) => {
+      return fetch(src)
+        .then((response) => response.blob())
+        .then((response) => {
+          const objectURL = URL.createObjectURL(response);
+          videoElement.setAttribute("src", objectURL);
+          if (videoLoader) videoLoader.style.display = "none";
+          videoElement.parentElement.classList.add("loaded");
+        });
+    };
+
+    // Intenta cargar WebM, si falla, carga MP4
+    loadSource(srcWebm).catch(() => loadSource(srcMp4));
+  }
+
+  // Calcula y guarda las posiciones de inicio y fin de los contenedores
+  updateWrapperPositions() {
+    this.scrubVideoWrappers.forEach((wrapper, index) => {
+      const rect = wrapper.getBoundingClientRect();
+      const top = rect.y + window.scrollY;
+      const bottom = top + wrapper.scrollHeight - window.innerHeight;
+      this.scrubVideoWrappersData[index].top = top;
+      this.scrubVideoWrappersData[index].bottom = bottom;
+    });
+  }
+
+  // Callback para cuando un video entra o sale del viewport
+  intersectionObserverCallback(entries, observer) {
+    entries.forEach((entry) => {
+      const isIntersecting = entry.isIntersecting;
+      const wrapper = entry.target.closest(".scrub-video-wrapper");
+
+      if (isIntersecting) {
+        observer.context.activeVideoWrapper = wrapper.getAttribute(
+          "data-scrub-video-index"
+        );
+      } else {
+        // Si el video que sale es el que estaba activo, lo desactivamos
+        if (
+          observer.context.activeVideoWrapper ===
+          wrapper.getAttribute("data-scrub-video-index")
+        ) {
+          observer.context.activeVideoWrapper = null;
+        }
+      }
+    });
+  }
+
+  // Gestiona el evento de scroll
+  handleScrollEvent(event) {
+    if (this.activeVideoWrapper !== null) {
+      const activeWrapperData =
+        this.scrubVideoWrappersData[this.activeVideoWrapper];
+      const { top, bottom, video } = activeWrapperData;
+
+      if (!video.duration) return; // Salir si el video aún no tiene duración
+
+      // Calcula el progreso del scroll dentro del contenedor (un número de 0 a 1)
+      const progress = Math.max(
+        0,
+        Math.min(0.998, (window.scrollY - top) / (bottom - top))
+      );
+
+      const seekTime = progress * video.duration;
+      video.currentTime = seekTime;
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // --- INICIA EL GESTOR DE VIDEO CON SCROLL ---
+  new ScrubVideoManager();
+
+  // Se mantiene el resto del código original que no afecta al video
   gsap.registerPlugin(ScrollTrigger);
 
   // --- LÓGICA DEL MENÚ DE HAMBURGUESA ---
@@ -83,10 +215,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const teacherBg = document.getElementById("teacher-parallax-bg");
   if (teacherBg) {
     ScrollTrigger.matchMedia({
-      // Solo activa la animación en pantallas 'lg' (1024px) y superiores
       "(min-width: 1024px)": function () {
         gsap.to(teacherBg, {
-          yPercent: -20, // Mueve la imagen hacia arriba un 20%
+          yPercent: -20,
           ease: "none",
           scrollTrigger: {
             trigger: "#teacher-augmentation-section",
@@ -97,93 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       },
     });
-  }
-
-  // --- LÓGICA DE SCROLLYTELLING CON PRECARGA FORZADA Y OBSERVER ---
-  const videoWrapper = document.querySelector(".scrub-video-wrapper");
-
-  if (videoWrapper) {
-    const video = document.getElementById("bg-video");
-    const videoLoader = document.getElementById("video-loader");
-    let videoScrubAnimation; // Variable para guardar nuestra animación de GSAP
-
-    // 1. FUNCIÓN DE PRECARGA FORZADA (Técnica del artículo)
-    const forceVideoLoad = (videoElement) => {
-      const srcWebm = "assets/gnius-club-video-inteligencia-para-el-bien.webm";
-      const srcMp4 = "assets/gnius-club-video-inteligencia-para-el-bien.mp4";
-
-      // Usamos la API Fetch para descargar el video como un 'blob'
-      fetch(srcWebm)
-        .then((response) => response.blob())
-        .then((blob) => {
-          const objectURL = URL.createObjectURL(blob);
-          const source = document.createElement("source");
-          source.src = objectURL;
-          source.type = "video/webm";
-          videoElement.appendChild(source);
-        })
-        .catch(() => {
-          // Si falla el WebM, intentamos con MP4
-          fetch(srcMp4)
-            .then((response) => response.blob())
-            .then((blob) => {
-              const objectURL = URL.createObjectURL(blob);
-              const source = document.createElement("source");
-              source.src = objectURL;
-              source.type = "video/mp4";
-              videoElement.appendChild(source);
-            });
-        });
-    };
-
-    // 2. FUNCIÓN QUE CREA LA ANIMACIÓN DE SCRUBBING
-    const createVideoScrubAnimation = () => {
-      // Se asegura de que el video esté listo
-      if (video.readyState >= 2) {
-        // Oculta el indicador de carga
-        if (videoLoader) videoLoader.style.display = "none";
-
-        // Creamos la animación de GSAP y la guardamos en la variable
-        videoScrubAnimation = gsap.to(video, {
-          currentTime: video.duration,
-          ease: "none",
-          scrollTrigger: {
-            trigger: videoWrapper,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        });
-      } else {
-        requestAnimationFrame(createVideoScrubAnimation);
-      }
-    };
-
-    // 3. EL INTERSECTION OBSERVER (Técnica del artículo)
-    // Solo se ejecuta en desktop
-    if (window.innerWidth >= 1024) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Cuando la sección entra en la pantalla, creamos la animación
-              createVideoScrubAnimation();
-            } else {
-              // Cuando sale, destruimos la animación para ahorrar recursos
-              if (videoScrubAnimation) {
-                videoScrubAnimation.scrollTrigger.kill();
-                videoScrubAnimation = null;
-              }
-            }
-          });
-        },
-        { threshold: 0.1 }
-      ); // Se activa cuando el 10% de la sección es visible
-
-      // Empezamos a observar y a descargar el video
-      observer.observe(videoWrapper);
-      forceVideoLoad(video);
-    }
   }
 
   // --- ANIMACIÓN DE CONTADORES CON "IMPACTO DE VIDRIO" ---
@@ -246,6 +290,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   }
+
+  // --- LÓGICA DEL PARALLAX DEL REMATE ---
   const remateBackground = document.getElementById("remate-background");
   if (remateBackground) {
     ScrollTrigger.matchMedia({
