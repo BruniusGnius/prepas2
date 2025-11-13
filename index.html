@@ -4,7 +4,64 @@
 <head>
 
 
+    <!-- ============== SEO FUNDAMENTAL ============== -->
+    <meta name="description"
+        content="Descubre InteligencI.A. para el Bien de Gnius Club. Preparamos a tus alumnos de preparatoria para liderar con IA, enseñando pensamiento aumentado y no solo a usar herramientas. ¡Revoluciona tu colegio!">
+    <meta name="keywords"
+        content="inteligencia artificial para colegios, IA en educación, modelo AI First, InteligencI.A. para el Bien, Gnius Club, innovación educativa, tecnología para preparatoria, pensamiento aumentado, IA para el bien">
+    <link rel="canonical" href="https://www.gnius.club/"> <!-- SUSTITUIR CON TU URL REAL -->
 
+    <!-- ============== OPEN GRAPH PROTOCOL (PARA REDES SOCIALES) ============== -->
+    <meta property="og:title"
+        content="InteligencI.A. para el Bien de Gnius Club: El Modelo AI First para Colegios que sí Prepara para el Futuro">
+    <meta property="og:description"
+        content="Tus alumnos ya usan IA, ¿pero la dominan? Conoce nuestro programa 'InteligencI.A. para el Bien' y transforma tu colegio.">
+    <meta property="og:image" content="https://www.gnius.club/assets/og-image-gnius-club.jpg">
+    <!-- IMPORTANTE: Crear una imagen de 1200x630px y subirla a esta ruta -->
+    <meta property="og:url" content="https://www.gnius.club/"> <!-- SUSTITUIR CON TU URL REAL -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <!-- ============== TWITTER CARD (PARA X) ============== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="InteligencI.A. para el Bien de Gnius Club: El Modelo AI First para Colegios que sí Prepara para el Futuro">
+    <meta name="twitter:description"
+        content="Tus alumnos ya usan IA, ¿pero la dominan? Conoce nuestro programa 'Inteligencia para el Bien' y transforma tu colegio.">
+    <meta name="twitter:image" content="https://www.gnius.club/assets/og-image-gnius-club.jpg">
+    <!-- Usa la misma imagen 1200x630px -->
+    <!-- Opcional: Si tienes una cuenta de X para Gnius Club, reemplaza @TuUsuarioDeX -->
+    <!-- <meta name="twitter:site" content="@TuUsuarioDeX"> -->
+
+    <!-- ============== DATOS ESTRUCTURADOS (SCHEMA JSON-LD PARA SGE) ============== -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "Gnius Club",
+      "url": "https://www.gnius.club/",
+      "logo": "https://www.gnius.club/assets/logo-gnius-club.png",
+      "description": "Líderes en la implementación de programas educativos 'AI First' para colegios preparatorios en México y Latinoamérica, enfocados en desarrollar competencias para el futuro."
+    },
+    {
+      "@type": "EducationalProduct",
+      "name": "Inteligencia para el Bien",
+      "description": "El primer programa educativo AI First que enseña a alumnos de preparatoria a usar la inteligencia artificial para aprender, crear y liderar, previniendo el déficit cognitivo y fomentando el pensamiento aumentado.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Gnius Club"
+      },
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Gnius Club"
+      }
+    }
+  ]
+}
+</script>
+
+    <!-- ============== FIN DEL BLOQUE SEO / OG / SGE ============== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gnius Club: Modelo AI First para Colegios Preparatorios</title>
@@ -143,8 +200,8 @@
         class="relative flex justify-center items-center lg:justify-start aspect-[9/15] md:aspect-square lg:aspect-[16/8] overflow-hidden">
 
         <div class="absolute inset-0">
-            <img id="hero-background" src="assets/chicos-uso-basico-iav3.png"
-                alt="Alumnos de preparatoria usando inteligencia artificial de forma básica en sus celulares."
+            <img id="hero-background" src="assets/alumnos-deficit-cognitivo.png"
+                alt="Alumnos de preparatoria usando inteligencia artificial de forma básica y con deficit cognitivo"
                 class="w-full h-full object-cover scale-110">
 
             <!-- Capa para Móvil/Tablet: Opacidad 80% y modo Multiply. Oculta en desktop. -->
@@ -195,7 +252,8 @@
 
                 <!-- Video/Poster de fondo (Capa 0) -->
                 <!-- El poster se mostrará en todas las pantallas. El src solo se usará en escritorio. -->
-                <video id="bg-video" playsinline muted poster="assets/video-poster.jpg"
+                <video id="bg-video" playsinline muted poster="assets/poster-video-inteligencia-para-el-bien.jpg"
+                    alt="Estudiantes de Gnius Club colaborando en un proyecto de inteligencia artificial."
                     src="assets/gnius-club-video-inteligencia-para-el-bien.mp4"
                     class="absolute inset-0 w-full h-full object-cover"></video>
 
@@ -249,7 +307,8 @@
         <section id="cta"
             class="relative py-20 sm:py-24 overflow-hidden mt-16 min-h-[40vh] md:min-h-[38vh] lg:min-h-[55vh] flex items-center justify-center">
             <div class="absolute inset-0">
-                <img id="cta-background" src="assets/cta.jpg" alt="Fondo abstracto de red neuronal."
+                <img id="cta-background" src="assets/alumnos-presentando-app.jpg"
+                    alt="Alumnos presentando una app desarrollada con Vibe Coding e IA"
                     class="w-full h-full object-cover scale-140">
                 <div class="absolute inset-0 bg-brand-dark-blue opacity-80"></div>
             </div>
@@ -270,8 +329,9 @@
         <!-- ======== PROBLEM (URGENCIA) ======== -->
         <section class=" bg-brand-dark  py-12 lg:py-16 sm:py-32">
             <div class="container mb-12 lg:mb-24 mx-auto">
-                <video class="mx-auto" src="assets/bienvenidos-int-bien1.mp4" autoplay muted loop
-                    preload="auto"></video>
+                <video class="mx-auto" src="assets/bienvenidos-inteligencia-para-el-bien.mp4" autoplay muted loop
+                    preload="auto"
+                    alt="Aula de un salón con un director dando la bienvenida y señalando los datos que aparecen abajo en el texto"></video>
             </div>
             <div class="container mx-auto px-6 lg:px-8">
                 <div class="container mx-auto px-6 lg:px-8">
@@ -388,7 +448,7 @@
                     </div>
                     <div class="lg:w-1/2">
                         <img src="assets/exposicion-app-builder.jpg"
-                            alt="Estudiante colaborando con una interfaz de inteligencia artificial."
+                            alt="Estudiantes presentando una app en desarrollo a su profesor mediante una laptop para evaluación"
                             class="rounded-lg shadow-xl w-full">
                     </div>
                 </div>
@@ -405,7 +465,7 @@
                             <!-- <img src="assets/ingenieria.jpg" alt="Ilustración de ingeniería aplicada"
                                 class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"> -->
                             <video class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"
-                                src="assets/3.mp4" muted autoplay loop></video>
+                                src="assets/alumnos-resolviendo-problema-en-pizarra.mp4" muted autoplay loop></video>
                             <div class="p-8 flex flex-col flex-grow">
 
                                 <h4 class="font-display text-3xl text-brand-yellow">Ingeniería aplicada</h4>
@@ -432,7 +492,8 @@
                             <!-- <img src="assets/automatizacion.png" alt="Ilustración de automatización de agentes"
                                 class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"> -->
                             <video class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"
-                                src="assets/2.mp4" muted autoplay loop></video>
+                                src="assets/chica-trabajando-en-automatizaciones-por-medio-de-nodos.mp4" muted autoplay
+                                loop alt="Chica trabajando en automatizaciones por medio de nodos"></video>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-purple">Automatización de agentes</h4>
                                 <div class="my-6 border-t border-brand-purple/30"></div>
@@ -458,7 +519,8 @@
                             <!-- <img src="assets/desarrollo.png" alt="Ilustración de desarrollo con IA"
                                 class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"> -->
                             <video class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"
-                                src="assets/1.mp4" muted autoplay loop></video>
+                                src="assets/Alumno-presentando-app-terminada.mp4" muted autoplay loop
+                                alt="Alumno presentando app terminada"></video>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-cyan">Desarrollo con IA</h4>
                                 <div class="my-6 border-t border-brand-cyan/30"></div>
@@ -580,7 +642,7 @@
         <section class="bg-brand-blue py-24 sm:py-32">
             <div class="container mx-auto px-6 lg:px-8">
                 <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
-                    <img src="assets/logo-white.svg" alt="Logo del World Summit Award de la ONU"
+                    <img src="assets/wsa-logo.svg" alt="Logo del World Summit Award de la ONU"
                         class="h-auto w-3/5 max-w-xs sm:w-48 md:w-60">
                     <p class="mt-8 font-display font-bold text-3xl sm:text-4xl text-brand-light">
                         Reconocido por la <em class="text-brand-gold">World Summit Award de la&nbsp;ONU</em> como
@@ -594,8 +656,8 @@
         <!-- ======== SOCIAL PROOF (WSA/ONU) - SECCIÓN 2: DETALLES ======== -->
         <section class="bg-brand-dark py-24 sm:py-32">
             <div class="container mx-auto px-6 lg:px-8 text-center flex flex-col items-center">
-                <img src="assets/tech4good.png"
-                    alt="Salón de clases con estudiantes preparatorianos trabajando en sus laptops."
+                <img src="assets/chicas-trabajando-en-un-sensor-de-limpieza-de-agua.png"
+                    alt="Chicas trabajando en un sensor de limpieza de agua, para solucionar un ODS de la ONU"
                     class="rounded-lg shadow-xl aspect-[16/8] object-cover w-full max-w-6xl">
                 <div class="max-w-4xl mx-auto mt-16">
                     <p class="text-xl text-brand-muted">Con presencia en escuelas de México y Latinoamérica, Gnius Club
@@ -616,8 +678,10 @@
             class="relative flex justify-center items-center lg:justify-start aspect-[9/15] md:aspect-square lg:aspect-[16/8] overflow-hidden">
 
             <div class="absolute inset-0">
-                <img id="remate-background" src="assets/chicos-desarrollando-apps.png"
-                    alt="Un entorno educativo del futuro." class="w-full h-full object-cover scale-110">
+                <img id="remate-background"
+                    src="assets/alumnos-desarrollando-apps-haciendo-vibe-coding-en-colaboracion-con-la-ia.png"
+                    alt="Estudiantes de preparatoria utilizan la inteligencia artificial como una herramienta colaborativa para programar una aplicación, aplicando su pensamiento crítico para resolver desafíos de código en tiempo real."
+                    class="w-full h-full object-cover scale-110">
                 <div class="absolute inset-0 bg-brand-dark/80 mix-blend-multiply lg:hidden"></div>
                 <div
                     class="hidden absolute inset-0 lg:block bg-gradient-to-r from-brand-dark via-brand-dark/60 to-transparent mix-blend-multiply">
@@ -656,8 +720,7 @@
     <footer class="py-12 border-t border-brand-navy/50 bg-brand-pure-black">
         <div class="container mx-auto px-6 lg:px-8 text-center">
             <a href="#" aria-label="Página de inicio de Gnius Club">
-                <img src="assets/logo-animado-gnius-moderno-blackv2.gif" alt="Logo de Gnius Club"
-                    class="h-32 w-auto mx-auto">
+                <img src="assets/logo-animado-gnius-club.gif" alt="Logo de Gnius Club" class="h-32 w-auto mx-auto">
             </a>
             <div class="mt-6 flex justify-center space-x-6 text-brand-muted">
                 <a href="#" class="hover:text-brand-light transition-colors">Términos y Condiciones</a>
