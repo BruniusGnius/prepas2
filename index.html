@@ -70,7 +70,7 @@
     <nav class="sticky top-0 z-50">
         <div class="flex items-stretch border-b border-brand-navy/50">
             <!-- BLOQUE IZQUIERDO: Logo y Menú de Escritorio -->
-            <div class="flex-grow bg-brand-dark/80 backdrop-blur-sm">
+            <div class="flex-grow bg-brand-dark/80 ">
                 <div class="container mx-auto px-6 lg:px-8">
                     <div class="flex h-20 items-center space-x-12">
                         <!-- Logo -->
@@ -89,7 +89,7 @@
             </div>
 
             <!-- BLOQUE DERECHO: CTA -->
-            <div class="flex-shrink-0 bg-brand-dark/80 backdrop-blur-sm">
+            <div class="flex-shrink-0 bg-brand-dark/80 ">
                 <div class="flex h-full items-center px-6 lg:px-8">
 
                     <!-- Grupo de CTA para Escritorio (Oculto en móvil) -->
@@ -120,8 +120,7 @@
         </div>
 
         <!-- Menú Desplegable para Móvil -->
-        <div id="mobile-menu"
-            class="hidden absolute top-20 left-0 right-0 z-40 bg-brand-dark/95 backdrop-blur-sm h-screen">
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 right-0 z-40 bg-brand-dark/95  h-screen">
             <div class="flex flex-col items-center space-y-8 pt-16 px-6">
                 <a href="#cta" class="text-brand-light hover:text-brand-gold font-bold text-2xl transition-colors">
                     Sesión para Directores
@@ -187,33 +186,29 @@
 
 
 
-        <!-- ======== SECCIÓN "CONOCE INTELiGENCIA PARA EL BIEN" (VERSIÓN FINAL Y FUNCIONAL) ======== -->
+        <!-- ======== SECCIÓN "CONOCE INTELIGENCIA PARA EL BIEN" ======== -->
+        <!-- El 'wrapper' define la altura total del scroll (300vh) -->
         <section class="scrub-video-wrapper relative bg-brand-dark lg:h-[300vh]">
 
-            <!-- Contenedor sticky que se activa en desktop -->
-            <!-- CORRECCIÓN: Se añade la clase 'scrub-video-container' que el JS necesita -->
+            <!-- El 'container' es el que se queda fijo (sticky) y contiene el video -->
             <div class="scrub-video-container lg:sticky top-0 h-screen overflow-hidden">
 
-                <!-- Video de fondo (Capa 0) -->
-                <!-- CORRECCIÓN: Se añaden los atributos data-src-* para que el JS los cargue -->
+                <!-- El video con los atributos data-src-* que usará el script -->
                 <video id="bg-video" playsinline muted preload="metadata"
-                    data-src-webm="assets/gnius-club-video-inteligencia-para-el-bien.webm"
-                    data-src-mp4="assets/gnius-club-video-inteligencia-para-el-bien.mp4"
-                    class="absolute inset-0 w-full h-full object-cover"></video>
+                    data-src-webm="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+                    data-src-mp4="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                    class="absolute inset-0 w-full h-full object-cover">
+                </video>
 
-                <!-- Overlay oscuro (Capa 1) -->
+                <!-- Capas de contenido y overlay -->
                 <div class="absolute inset-0 bg-brand-dark/80"></div>
-
-                <!-- Indicador de Carga (se oculta cuando el video está listo) -->
                 <div id="video-loader" class="absolute inset-0 z-20 flex items-center justify-center bg-brand-dark">
                     <p class="text-brand-muted animate-pulse">Cargando experiencia...</p>
                 </div>
-
-                <!-- Contenido de Texto (Capa 2) -->
                 <div class="relative z-10 h-full flex flex-col lg:flex-row items-center">
+                    <!-- ... tu contenido de texto aquí ... -->
                     <div class="container mx-auto px-6 md:px-12 lg:px-16 w-full">
                         <div class="flex flex-col lg:flex-row items-center gap-16">
-                            <!-- Columna izquierda: título -->
                             <div class="w-full lg:w-1/2 text-center lg:text-left py-16 lg:py-0">
                                 <p class="font-display text-lg uppercase tracking-widest text-brand-action-blue">Conoce
                                 </p>
@@ -223,8 +218,6 @@
                                         class="text-brand-gold">Bien</span> es...
                                 </h2>
                             </div>
-
-                            <!-- Columna derecha: frases -->
                             <div class="w-full lg:w-1/2 text-center lg:text-left">
                                 <div id="phrases" class="space-y-16 lg:space-y-0 lg:relative">
                                     <p class="panel font-display text-4xl lg:text-5xl leading-tight text-brand-light">
