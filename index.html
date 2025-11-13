@@ -7,16 +7,12 @@
     <title>Gnius Club: Modelo AI First para Colegios Preparatorios</title>
 
     <!-- ============== RECURSOS EXTERNOS ============== -->
-    <link rel="preload" as="video" href="https://gnius.club/sorry/assets/gnius-club-video-inteligencia-para-el-bien.mp4"
-        video\mp4>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@700&family=Saira:wght@500;700&display=swap"
         rel="stylesheet">
-
-    <!-- Scripts de Animación -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -189,25 +185,26 @@
             <div class="scrub-video-container lg:sticky top-0 h-screen overflow-hidden">
 
                 <!-- Video de fondo (Capa 0) -->
-                <!-- CAMBIO AQUÍ: Se cambió la fuente del video a .mp4 -->
-                <video id="bg-video" playsinline muted
-                    src="https://gnius.club/sorry/assets/gnius-club-video-inteligencia-para-el-bien.mp4"
-                    class="absolute inset-0 w-full h-full object-cover"></video>
+                <video id="bg-video" playsinline muted poster="assets/video-poster.jpg"
+                    class="absolute inset-0 w-full h-full object-cover">
+                    <!-- CAMBIO AQUÍ: Usamos el nombre de archivo correcto en data-src -->
+                    <source data-src="assets/gnius-club-video-inteligencia-para-el-bien.mp4" type="video/mp4">
+                </video>
 
                 <!-- Overlay oscuro (Capa 1) -->
                 <div class="absolute inset-0 bg-brand-dark/80"></div>
 
-                <!-- Indicador de Carga (se oculta cuando el video está listo) -->
-                <div id="video-loader" class="absolute inset-0 z-20 flex items-center justify-center bg-brand-dark">
+                <!-- Loader visible mientras el video se descarga en segundo plano -->
+                <div id="video-loader"
+                    class="absolute inset-0 z-20 flex items-center justify-center bg-brand-dark transition-opacity duration-500">
                     <p class="text-brand-muted animate-pulse">Cargando experiencia...</p>
                 </div>
 
                 <!-- Contenido de Texto (Capa 2) -->
                 <div class="relative z-10 h-full flex flex-col lg:flex-row items-center">
                     <div class="container mx-auto px-6 md:px-12 lg:px-16 w-full">
-                        <div class="flex flex-col lg:flex-row items-center gap-16">
-                            <!-- Columna izquierda: título -->
-                            <div class="w-full lg:w-1/2 text-center lg:text-left py-16 lg:py-0">
+                        <div class="flex flex-col lg:flex-row items-center lg:gap-16">
+                            <div class="w-full lg:w-1/2 text-center lg:text-left py-8 lg:py-0">
                                 <p class="font-display text-lg uppercase tracking-widest text-brand-action-blue">Conoce
                                 </p>
                                 <h2
@@ -216,8 +213,6 @@
                                         class="text-brand-gold">Bien</span> es...
                                 </h2>
                             </div>
-
-                            <!-- Columna derecha: frases -->
                             <div class="w-full lg:w-1/2 text-center lg:text-left">
                                 <div id="phrases" class="space-y-16 lg:space-y-0 lg:relative">
                                     <p class="panel font-display text-4xl lg:text-5xl leading-tight text-brand-light">
@@ -261,10 +256,13 @@
                 <div class="container mx-auto px-6 lg:px-8">
 
                     <div id="zoom-container" class="max-w-6xl mx-auto rounded-lg shadow-2xl mb-12 overflow-hidden">
-                        <img id="zoom-image" src="assets/construccion-app-vibe-coding.jpg"
+                        <!-- <img id="zoom-image" src="assets/construccion-app-vibe-coding.jpg"
                             alt="Gráfica abstracta mostrando un crecimiento acelerado."
-                            class="w-full aspect-[16/8] object-cover" style="transform-origin: 50% 30%;">
+                            class="w-full aspect-[16/8] object-cover" style="transform-origin: 50% 30%;"> -->
+
                     </div>
+                    <div class="mb-24"><video src="assets/bienvenidos-int-bien1.mp4" autoplay muted
+                            preload="auto"></video></div>
 
 
                     <div class="text-center max-w-4xl mx-auto">
@@ -388,8 +386,10 @@
                     <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
                         <div
                             class="bg-brand-yellow-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-yellow ">
-                            <img src="assets/ingenieria.jpg" alt="Ilustración de ingeniería aplicada"
-                                class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover">
+                            <!-- <img src="assets/ingenieria.jpg" alt="Ilustración de ingeniería aplicada"
+                                class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"> -->
+                            <video preload="auto" muted autoplay loop poster="assets/ingenieria.jpg"
+                                src="assets/3.mp4"></video>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-yellow">Ingeniería aplicada</h4>
                                 <div class="my-6 border-t border-brand-yellow/30"></div>
@@ -410,8 +410,10 @@
                         </div>
                         <div
                             class="bg-brand-purple-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-purple ">
-                            <img src="assets/automatizacion.png" alt="Ilustración de automatización de agentes"
-                                class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover">
+                            <!-- <img src="assets/automatizacion.png" alt="Ilustración de automatización de agentes"
+                                class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"> -->
+                            <video preload="auto" muted autoplay loop poster="assets/automatizacion.png"
+                                src="assets/2.mp4"></video>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-purple">Automatización de agentes</h4>
                                 <div class="my-6 border-t border-brand-purple/30"></div>
@@ -432,8 +434,10 @@
                         </div>
                         <div
                             class="bg-brand-cyan-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-cyan ">
-                            <img src="assets/desarrollo.png" alt="Ilustración de desarrollo con IA"
-                                class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover bottom-0">
+                            <!-- <img src="assets/desarrollo.png" alt="Ilustración de desarrollo con IA"
+                                class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover bottom-0"> -->
+                            <video preload="auto" muted autoplay loop poster="assets/desarrollo.png"
+                                src="assets/1.mp4"></video>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-cyan">Desarrollo con IA</h4>
                                 <div class="my-6 border-t border-brand-cyan/30"></div>
@@ -643,7 +647,9 @@
     </footer>
 
     <!-- scripts -->
+    <!-- scripts -->
     <script src="scripts/main.js"></script>
+
 </body>
 
 </html>

@@ -1,75 +1,65 @@
 // scripts/main.js
 
 /**
- * Clase que gestiona la animación de video mediante scroll,
- * siguiendo el patrón del tutorial para un rendimiento óptimo.
+ * Inicia la descarga de un video en segundo plano tan pronto como la página se carga.
+ * @param {string} videoId - El ID del elemento <video>.
+ */
+function preloadVideoInBackground(videoId) {
+  const video = document.getElementById(videoId);
+  if (!video) return;
+
+  const source = video.querySelector("source");
+  const videoUrl = source.getAttribute("data-src");
+  const loader = document.getElementById("video-loader");
+
+  if (videoUrl) {
+    fetch(videoUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const objectURL = URL.createObjectURL(blob);
+        video.src = objectURL;
+        video.addEventListener(
+          "loadeddata",
+          () => {
+            if (loader) loader.style.opacity = "0";
+          },
+          { once: true }
+        );
+      })
+      .catch((err) => {
+        console.error("No se pudo precargar el video:", err);
+        if (loader) loader.style.display = "none";
+      });
+  }
+}
+
+/**
+ * Clase que gestiona la animación de video mediante scroll.
  */
 class ScrubVideoManager {
   constructor() {
     this.scrubVideoWrappers = document.querySelectorAll(".scrub-video-wrapper");
     if (this.scrubVideoWrappers.length === 0) return;
-
-    // Solo activar en pantallas de escritorio
     if (window.innerWidth < 1024) return;
-
     this.scrubVideoWrappersData = [];
     this.activeVideoWrapper = null;
-
     const observer = new IntersectionObserver(
-      this.intersectionObserverCallback,
-      {
-        threshold: 1,
-      }
+      this.intersectionObserverCallback.bind(this),
+      { threshold: 0.1 }
     );
-    observer.context = this;
-
     this.scrubVideoWrappers.forEach((wrapper, index) => {
       const videoContainer = wrapper.querySelector(".scrub-video-container");
-      if (videoContainer) {
-        observer.observe(videoContainer);
-      }
-
+      if (videoContainer) observer.observe(videoContainer);
       wrapper.setAttribute("data-scrub-video-index", index);
       const video = wrapper.querySelector("video");
-      const loader = wrapper.querySelector("#video-loader");
-
-      this.scrubVideoWrappersData[index] = {
-        video: video,
-        loader: loader,
-      };
-      this.fetchVideo(video, loader);
+      this.scrubVideoWrappersData[index] = { video: video };
     });
-
     this.updateWrapperPositions();
-
     window.addEventListener("resize", () => this.updateWrapperPositions());
     document.addEventListener("scroll", (event) =>
       this.handleScrollEvent(event)
     );
   }
-
-  fetchVideo(videoElement, loaderElement) {
-    const src = videoElement.getAttribute("src");
-    if (!src) return;
-
-    fetch(src)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const objectURL = URL.createObjectURL(blob);
-        videoElement.setAttribute("src", objectURL);
-        if (loaderElement) {
-          // Esperar a que el video pueda reproducirse para ocultar el loader
-          videoElement.addEventListener(
-            "canplay",
-            () => {
-              loaderElement.style.display = "none";
-            },
-            { once: true }
-          );
-        }
-      });
-  }
-
   updateWrapperPositions() {
     this.scrubVideoWrappers.forEach((wrapper, index) => {
       const rect = wrapper.getBoundingClientRect();
@@ -79,47 +69,46 @@ class ScrubVideoManager {
       this.scrubVideoWrappersData[index].bottom = bottom;
     });
   }
-
-  intersectionObserverCallback(entries, observer) {
+  intersectionObserverCallback(entries) {
     entries.forEach((entry) => {
-      const isWithinViewport = entry.intersectionRatio === 1;
-      entry.target.classList.toggle("in-view", isWithinViewport);
-
-      if (isWithinViewport) {
-        observer.context.activeVideoWrapper =
-          entry.target.parentNode.getAttribute("data-scrub-video-index");
+      const wrapperIndex = entry.target.parentNode.getAttribute(
+        "data-scrub-video-index"
+      );
+      if (entry.isIntersecting) {
+        this.activeVideoWrapper = wrapperIndex;
       } else {
-        if (
-          observer.context.activeVideoWrapper ===
-          entry.target.parentNode.getAttribute("data-scrub-video-index")
-        ) {
-          observer.context.activeVideoWrapper = null;
-        }
+        if (this.activeVideoWrapper === wrapperIndex)
+          this.activeVideoWrapper = null;
       }
     });
   }
-
   handleScrollEvent() {
     if (this.activeVideoWrapper !== null) {
       const activeWrapperData =
         this.scrubVideoWrappersData[this.activeVideoWrapper];
       const { top, bottom, video } = activeWrapperData;
-
-      if (!video || isNaN(video.duration)) return;
-
+      if (!video || isNaN(video.duration) || video.duration === 0) return;
       const progress = Math.max(
         0,
         Math.min(0.998, (window.scrollY - top) / (bottom - top))
       );
-
-      const seekTime = progress * video.duration;
-      video.currentTime = seekTime;
+      video.currentTime = progress * video.duration;
     }
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
+
+  // ==================================================================
+  // 1. INICIA LA DESCARGA DEL VIDEO INMEDIATAMENTE
+  // ==================================================================
+  preloadVideoInBackground("bg-video");
+
+  // ==================================================================
+  // 2. INICIALIZA EL GESTOR DE SCROLL
+  // ==================================================================
+  new ScrubVideoManager();
 
   // --- LÓGICA DEL MENÚ DE HAMBURGUESA ---
   const hamburgerButton = document.getElementById("hamburger-button");
