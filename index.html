@@ -187,8 +187,8 @@
         <!-- NOTA: En pantallas < lg, la altura es automática (no 300vh) -->
         <section class="scrub-video-wrapper relative bg-brand-dark lg:h-[300vh]">
 
-            <!-- En pantallas < lg, el sticky no se aplica -->
-            <div class="scrub-video-container lg:sticky top-0 h-screen overflow-hidden">
+            <!-- En pantallas < lg, el sticky no se aplica. AÑADIMOS PADDING VERTICAL EN MÓVIL (py-24) Y QUITAMOS h-screen -->
+            <div class="scrub-video-container lg:sticky top-0 overflow-hidden h-[80vh] md:h-[60vh] lg:h-screen">
 
                 <!-- Video/Poster de fondo (Capa 0) -->
                 <!-- El poster se mostrará en todas las pantallas. El src solo se usará en escritorio. -->
@@ -200,32 +200,36 @@
                 <div class="absolute inset-0 bg-brand-dark/80"></div>
 
                 <!-- Loader que ahora será gestionado correctamente por el JS -->
-                <div id="video-loader" class="absolute inset-0 z-20 flex items-center justify-center bg-brand-dark">
+                <div id="video-loader"
+                    class="absolute inset-0 z-20 hidden items-center justify-center bg-brand-dark lg:flex">
                     <p class="text-brand-muted animate-pulse">Cargando experiencia...</p>
                 </div>
 
                 <!-- Contenido de Texto (Capa 2) -->
-                <!-- Este contenedor usa flex-col en móvil y flex-row en desktop (lg) -->
-                <div class="relative z-10 h-full flex flex-col justify-center items-center lg:flex-row">
-                    <div class="container mx-auto px-6 md:px-12 lg:px-16 w-full">
-                        <!-- Este flex también se apila en móvil (flex-col) y se pone lado a lado en desktop (lg:flex-row) -->
-                        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 text-center lg:text-left">
+                <!-- CAMBIAMOS justify-center POR justify-between PARA SEPARAR EL TEXTO VERTICALMENTE EN MÓVIL -->
+                <div class="relative z-10 h-full flex flex-col items-center">
+                    <div class="container mx-auto px-6 md:px-12 lg:px-16 w-full h-full">
+                        <!-- AÑADIMOS h-full y flex-col justify-between para que ocupe todo el alto y separe los elementos -->
+                        <div
+                            class="flex flex-col h-full justify-between lg:flex-row lg:justify-center items-center gap-8 lg:gap-16 text-center lg:text-left py-12 lg:py-0">
 
                             <!-- Columna 1 (arriba en móvil): "Conoce..." -->
-                            <div class="w-full lg:w-1/2 py-16 lg:py-0">
+                            <!-- Quitamos el padding vertical que ya no es necesario aquí -->
+                            <div class="w-full lg:w-1/2">
                                 <p class="font-display text-lg uppercase tracking-widest text-brand-action-blue">Conoce
                                 </p>
                                 <h2
                                     class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-brand-light mt-4 leading-tight">
                                     Inteligenc<span class="text-brand-gold">IA</span><br>para el <span
-                                        class="text-brand-gold">Bien</span> es...
+                                        class="text-brand-gold">Bien</span>.
                                 </h2>
                             </div>
 
                             <!-- Columna 2 (abajo en móvil): "...el modelo..." -->
-                            <div class="w-full lg:w-1/2 pb-16 lg:pb-0">
+                            <!-- Quitamos el padding vertical que ya no es necesario aquí -->
+                            <div class="w-full lg:w-1/2">
                                 <p class="panel font-display text-4xl lg:text-5xl leading-tight text-brand-light">
-                                    ...el modelo <strong class="text-brand-yellow font-bold">AI First</strong> que
+                                    Es el modelo <strong class="text-brand-yellow font-bold">AI First</strong> que
                                     enseña a usar la IA para <strong class="text-brand-gold font-bold">aprender, crear y
                                         liderar</strong>, no para <strong class="text-brand-muted font-bold">copiar y
                                         pegar</strong>.

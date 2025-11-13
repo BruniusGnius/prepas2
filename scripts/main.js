@@ -9,12 +9,16 @@ class ScrubVideoManager {
     const loader = document.getElementById("video-loader");
 
     // --- LÓGICA PARA MÓVIL Y TABLETA (< 1024px) ---
+    // Esta es la parte clave. Se ejecuta ANTES que cualquier otra cosa.
     if (window.innerWidth < 1024) {
-      // Ocultamos el loader inmediatamente para mostrar el poster y el texto.
+      // 1. Verificamos si el 'loader' existe en la página.
       if (loader) {
+        // 2. Si existe, lo ocultamos inmediatamente.
+        // Esto hará que el poster del video y el texto sean visibles al instante.
         loader.style.display = "none";
       }
-      // No hacemos nada más. No hay video, no hay scroll, solo la imagen estática.
+      // 3. Detenemos la ejecución del resto del código con 'return'.
+      // Así, no se intentará cargar el video ni se activará la animación por scroll en móviles.
       return;
     }
 
