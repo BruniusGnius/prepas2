@@ -1,66 +1,84 @@
 // scripts/main.js
 
 /**
- * Inicia la descarga de un video en segundo plano tan pronto como la página se carga.
- * @param {string} videoId - El ID del elemento <video>.
- */
-function preloadVideoInBackground(videoId) {
-  const video = document.getElementById(videoId);
-  if (!video) return;
-
-  const source = video.querySelector("source");
-  const videoUrl = source.getAttribute("data-src");
-  const loader = document.getElementById("video-loader");
-
-  if (videoUrl) {
-    fetch(videoUrl)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const objectURL = URL.createObjectURL(blob);
-        video.src = objectURL;
-        video.addEventListener(
-          "loadeddata",
-          () => {
-            if (loader) loader.style.opacity = "0";
-          },
-          { once: true }
-        );
-      })
-      .catch((err) => {
-        console.error("No se pudo precargar el video:", err);
-        if (loader) loader.style.display = "none";
-      });
-  }
-}
-
-/**
  * Clase que gestiona la animación de video mediante scroll.
+ * Ahora con lógica separada para móvil y escritorio.
  */
 class ScrubVideoManager {
   constructor() {
+    const loader = document.getElementById("video-loader");
+
+    // --- LÓGICA PARA MÓVIL Y TABLETA (< 1024px) ---
+    if (window.innerWidth < 1024) {
+      // Ocultamos el loader inmediatamente para mostrar el poster y el texto.
+      if (loader) {
+        loader.style.display = "none";
+      }
+      // No hacemos nada más. No hay video, no hay scroll, solo la imagen estática.
+      return;
+    }
+
+    // --- LÓGICA PARA ESCRITORIO (>= 1024px) ---
+    // El resto de este código solo se ejecutará en pantallas grandes.
     this.scrubVideoWrappers = document.querySelectorAll(".scrub-video-wrapper");
     if (this.scrubVideoWrappers.length === 0) return;
-    if (window.innerWidth < 1024) return;
+
     this.scrubVideoWrappersData = [];
     this.activeVideoWrapper = null;
+
     const observer = new IntersectionObserver(
-      this.intersectionObserverCallback.bind(this),
-      { threshold: 0.1 }
+      this.intersectionObserverCallback,
+      { threshold: 1 }
     );
+    observer.context = this;
+
     this.scrubVideoWrappers.forEach((wrapper, index) => {
       const videoContainer = wrapper.querySelector(".scrub-video-container");
-      if (videoContainer) observer.observe(videoContainer);
+      if (videoContainer) {
+        observer.observe(videoContainer);
+      }
       wrapper.setAttribute("data-scrub-video-index", index);
       const video = wrapper.querySelector("video");
       this.scrubVideoWrappersData[index] = { video: video };
+
+      // Inicia la descarga del video en segundo plano.
+      this.fetchVideo(video, loader);
     });
+
     this.updateWrapperPositions();
     window.addEventListener("resize", () => this.updateWrapperPositions());
     document.addEventListener("scroll", (event) =>
       this.handleScrollEvent(event)
     );
   }
+
+  fetchVideo(videoElement, loaderElement) {
+    const src = videoElement.getAttribute("src");
+    if (!src) return;
+
+    fetch(src)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const objectURL = URL.createObjectURL(blob);
+        videoElement.setAttribute("src", objectURL);
+        if (loaderElement) {
+          videoElement.addEventListener(
+            "canplay",
+            () => {
+              // Usamos opacidad para una transición suave al ocultar el loader
+              loaderElement.style.opacity = "0";
+              setTimeout(() => {
+                loaderElement.style.display = "none";
+              }, 500); // Lo eliminamos del DOM después de la transición
+            },
+            { once: true }
+          );
+        }
+      });
+  }
+
   updateWrapperPositions() {
+    // ... (este método no necesita cambios)
     this.scrubVideoWrappers.forEach((wrapper, index) => {
       const rect = wrapper.getBoundingClientRect();
       const top = rect.top + window.scrollY;
@@ -69,30 +87,39 @@ class ScrubVideoManager {
       this.scrubVideoWrappersData[index].bottom = bottom;
     });
   }
-  intersectionObserverCallback(entries) {
+
+  intersectionObserverCallback(entries, observer) {
+    // ... (este método no necesita cambios)
     entries.forEach((entry) => {
-      const wrapperIndex = entry.target.parentNode.getAttribute(
-        "data-scrub-video-index"
-      );
-      if (entry.isIntersecting) {
-        this.activeVideoWrapper = wrapperIndex;
+      const isWithinViewport = entry.intersectionRatio === 1;
+      entry.target.classList.toggle("in-view", isWithinViewport);
+      if (isWithinViewport) {
+        observer.context.activeVideoWrapper =
+          entry.target.parentNode.getAttribute("data-scrub-video-index");
       } else {
-        if (this.activeVideoWrapper === wrapperIndex)
-          this.activeVideoWrapper = null;
+        if (
+          observer.context.activeVideoWrapper ===
+          entry.target.parentNode.getAttribute("data-scrub-video-index")
+        ) {
+          observer.context.activeVideoWrapper = null;
+        }
       }
     });
   }
+
   handleScrollEvent() {
+    // ... (este método no necesita cambios)
     if (this.activeVideoWrapper !== null) {
       const activeWrapperData =
         this.scrubVideoWrappersData[this.activeVideoWrapper];
       const { top, bottom, video } = activeWrapperData;
-      if (!video || isNaN(video.duration) || video.duration === 0) return;
+      if (!video || isNaN(video.duration)) return;
       const progress = Math.max(
         0,
         Math.min(0.998, (window.scrollY - top) / (bottom - top))
       );
-      video.currentTime = progress * video.duration;
+      const seekTime = progress * video.duration;
+      video.currentTime = seekTime;
     }
   }
 }
@@ -100,14 +127,8 @@ class ScrubVideoManager {
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // ==================================================================
-  // 1. INICIA LA DESCARGA DEL VIDEO INMEDIATAMENTE
-  // ==================================================================
-  preloadVideoInBackground("bg-video");
-
-  // ==================================================================
-  // 2. INICIALIZA EL GESTOR DE SCROLL
-  // ==================================================================
+  // --- INICIALIZACIÓN DEL VIDEO MANAGER ---
+  // Ahora tiene lógica condicional interna para móvil/escritorio.
   new ScrubVideoManager();
 
   // --- LÓGICA DEL MENÚ DE HAMBURGUESA ---
