@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRUEBA DE VIDEO AISLADO Y ROBUSTO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0D1117;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .scrub-video-container {
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="h-screen flex items-center justify-center">
+        <h1 class="text-4xl">Desplaza hacia abajo para probar el video</h1>
+    </div>
+
+    <section class="scrub-video-wrapper relative h-[300vh] bg-black">
+        <div class="scrub-video-container sticky top-0 h-screen overflow-hidden">
+            <video id="bg-video" playsinline muted preload="metadata"
+                class="absolute inset-0 w-full h-full object-cover">
+                <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            </video>
+            <div id="video-loader" class="absolute inset-0 z-20 flex items-center justify-center bg-black">
+                <p class="text-white">Cargando video...</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="h-screen flex items-center justify-center">
+        <h1 class="text-4xl">Fin de la prueba</h1>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            class ScrubVideoManager {
+                constructor() {
+                    this.contenedores = document.querySelectorAll(".scrub-video-wrapper");
+                    if (this.contenedores.length === 0) return;
+                    this.datosVideo = [];
+                    this.videoActivo = null;
+
+                    const observer = new IntersectionObserver(this.intersectionObserverCallback, { threshold: 0.1 });
+                    observer.contexto = this;
+
+                    this.contenedores.forEach((contenedor, index) => {
+                        contenedor.setAttribute("data-scrub-video-index", index);
+                        const video = contenedor.querySelector("video");
+                        const cargador = contenedor.querySelector("#video-loader");
+                        this.datosVideo[index] = { video, cargador };
+                        observer.observe(contenedor.querySelector(".scrub-video-container"));
+                    });
+
+                    // --- LA LÓGICA CORREGIDA Y ROBUSTA ---
+                    const videoElement = this.datosVideo[0].video;
+                    const cargadorElement = this.datosVideo[0].cargador;
+
+                    const onMetadataLoaded = () => {
+                        if (cargadorElement) cargadorElement.style.display = 'none';
+                        this.actualizarPosiciones();
+                    };
+
+                    // PREGUNTAMOS: ¿Ya están listos los metadatos?
+                    // video.readyState >= 1 significa que sí (HAVE_METADATA)
+                    if (videoElement.readyState >= 1) {
+                        onMetadataLoaded(); // Si es así, ejecutamos la función inmediatamente.
+                    } else {
+                        // Si no, nos ponemos a escuchar el evento.
+                        videoElement.onloadedmetadata = onMetadataLoaded;
+                    }
+                    // --- FIN DE LA CORRECCIÓN ---
+
+                    window.addEventListener("resize", () => this.actualizarPosiciones());
+                    document.addEventListener("scroll", () => this.handleScrollEvent());
+                }
+
+                actualizarPosiciones() {
+                    this.contenedores.forEach((contenedor, index) => {
+                        const rect = contenedor.getBoundingClientRect();
+                        const top = rect.top + window.scrollY;
+                        const bottom = top + contenedor.scrollHeight - window.innerHeight;
+                        this.datosVideo[index].top = top;
+                        this.datosVideo[index].bottom = bottom;
+                    });
+                }
+
+                intersectionObserverCallback(entries, observer) {
+                    entries.forEach(entry => {
+                        const index = entry.target.closest('.scrub-video-wrapper').getAttribute("data-scrub-video-index");
+                        if (entry.isIntersecting) {
+                            observer.contexto.videoActivo = index;
+                        } else if (observer.contexto.videoActivo === index) {
+                            observer.contexto.videoActivo = null;
+                        }
+                    });
+                }
+
+                handleScrollEvent() {
+                    if (this.videoActivo === null) return;
+                    const datos = this.datosVideo[this.videoActivo];
+                    if (!datos || !datos.video.duration) return;
+
+                    const progreso = Math.max(0, Math.min(1, (window.scrollY - datos.top) / (datos.bottom - datos.top)));
+                    datos.video.currentTime = progreso * datos.video.duration;
+                }
+            }
+            new ScrubVideoManager();
+        });
+    </script>
+
+</body>
+
+</html>

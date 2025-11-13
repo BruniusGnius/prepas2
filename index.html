@@ -7,7 +7,7 @@
     <title>Gnius Club: Modelo AI First para Colegios Preparatorios</title>
 
     <!-- ============== RECURSOS EXTERNOS ============== -->
-    <link rel="preload" as="video" href="assets/gnius-club-video-inteligencia-para-el-bien-optimizado.webm" video\webm>
+    <link rel="preload" as="video" href="assets/gnius-club-video-inteligencia-para-el-bien.mp4" video\mp4>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +70,7 @@
     <nav class="sticky top-0 z-50">
         <div class="flex items-stretch border-b border-brand-navy/50">
             <!-- BLOQUE IZQUIERDO: Logo y Menú de Escritorio -->
-            <div class="flex-grow bg-brand-dark/80 ">
+            <div class="flex-grow bg-brand-dark/80 backdrop-blur-sm">
                 <div class="container mx-auto px-6 lg:px-8">
                     <div class="flex h-20 items-center space-x-12">
                         <!-- Logo -->
@@ -89,7 +89,7 @@
             </div>
 
             <!-- BLOQUE DERECHO: CTA -->
-            <div class="flex-shrink-0 bg-brand-dark/80 ">
+            <div class="flex-shrink-0 bg-brand-dark/80 backdrop-blur-sm">
                 <div class="flex h-full items-center px-6 lg:px-8">
 
                     <!-- Grupo de CTA para Escritorio (Oculto en móvil) -->
@@ -120,7 +120,8 @@
         </div>
 
         <!-- Menú Desplegable para Móvil -->
-        <div id="mobile-menu" class="hidden absolute top-20 left-0 right-0 z-40 bg-brand-dark/95  h-screen">
+        <div id="mobile-menu"
+            class="hidden absolute top-20 left-0 right-0 z-40 bg-brand-dark/95 backdrop-blur-sm h-screen">
             <div class="flex flex-col items-center space-y-8 pt-16 px-6">
                 <a href="#cta" class="text-brand-light hover:text-brand-gold font-bold text-2xl transition-colors">
                     Sesión para Directores
@@ -181,34 +182,29 @@
 
     <main>
 
-
-
-
-
-
-        <!-- ======== SECCIÓN "CONOCE INTELIGENCIA PARA EL BIEN" ======== -->
-        <!-- El 'wrapper' define la altura total del scroll (300vh) -->
+        <!-- ======== SECCIÓN "CONOCE INTELIGENCIA PARA EL BIEN" (VERSIÓN FINAL Y FUNCIONAL) ======== -->
         <section class="scrub-video-wrapper relative bg-brand-dark lg:h-[300vh]">
 
-            <!-- El 'container' es el que se queda fijo (sticky) y contiene el video -->
             <div class="scrub-video-container lg:sticky top-0 h-screen overflow-hidden">
 
-                <!-- El video con los atributos data-src-* que usará el script -->
-                <video id="bg-video" playsinline muted preload="metadata"
-                    data-src-webm="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
-                    data-src-mp4="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                    class="absolute inset-0 w-full h-full object-cover">
-                </video>
+                <!-- Video de fondo (Capa 0) -->
+                <!-- CAMBIO AQUÍ: Se cambió la fuente del video a .mp4 -->
+                <video id="bg-video" playsinline muted src="assets/gnius-club-video-inteligencia-para-el-bien.mp4"
+                    class="absolute inset-0 w-full h-full object-cover"></video>
 
-                <!-- Capas de contenido y overlay -->
+                <!-- Overlay oscuro (Capa 1) -->
                 <div class="absolute inset-0 bg-brand-dark/80"></div>
+
+                <!-- Indicador de Carga (se oculta cuando el video está listo) -->
                 <div id="video-loader" class="absolute inset-0 z-20 flex items-center justify-center bg-brand-dark">
                     <p class="text-brand-muted animate-pulse">Cargando experiencia...</p>
                 </div>
+
+                <!-- Contenido de Texto (Capa 2) -->
                 <div class="relative z-10 h-full flex flex-col lg:flex-row items-center">
-                    <!-- ... tu contenido de texto aquí ... -->
                     <div class="container mx-auto px-6 md:px-12 lg:px-16 w-full">
                         <div class="flex flex-col lg:flex-row items-center gap-16">
+                            <!-- Columna izquierda: título -->
                             <div class="w-full lg:w-1/2 text-center lg:text-left py-16 lg:py-0">
                                 <p class="font-display text-lg uppercase tracking-widest text-brand-action-blue">Conoce
                                 </p>
@@ -218,6 +214,8 @@
                                         class="text-brand-gold">Bien</span> es...
                                 </h2>
                             </div>
+
+                            <!-- Columna derecha: frases -->
                             <div class="w-full lg:w-1/2 text-center lg:text-left">
                                 <div id="phrases" class="space-y-16 lg:space-y-0 lg:relative">
                                     <p class="panel font-display text-4xl lg:text-5xl leading-tight text-brand-light">
@@ -234,20 +232,9 @@
             </div>
         </section>
 
-
-
-
-
-
-
-
-
-
-
         <!-- ======== CALL TO ACTION 1 (CON PARALLAX) ======== -->
         <section id="cta" class="relative py-20 sm:py-24 overflow-hidden mt-16">
             <div class="absolute inset-0">
-                <!-- Se añade un ID y se escala la imagen -->
                 <img id="cta-background" src="assets/expositores-cta.jpg" alt="Fondo abstracto de red neuronal."
                     class="w-full h-full object-cover scale-140">
                 <div class="absolute inset-0 bg-brand-dark opacity-60"></div>
@@ -271,13 +258,10 @@
             <div class="container mx-auto px-6 lg:px-8">
                 <div class="container mx-auto px-6 lg:px-8">
 
-                    <!-- CONTENEDOR DE LA IMAGEN (NUEVO) -->
-                    <!-- Este div actúa como una 'ventana'. El 'overflow-hidden' recorta la imagen que crece. -->
                     <div id="zoom-container" class="max-w-6xl mx-auto rounded-lg shadow-2xl mb-12 overflow-hidden">
                         <img id="zoom-image" src="assets/construccion-app-vibe-coding.jpg"
                             alt="Gráfica abstracta mostrando un crecimiento acelerado."
                             class="w-full aspect-[16/8] object-cover" style="transform-origin: 50% 30%;">
-                        <!-- El 'transform-origin' ajusta el foco del zoom (50% centro, 30% un poco arriba) -->
                     </div>
 
 
@@ -311,7 +295,6 @@
                         <div
                             class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-danger/10 rounded-lg p-6 border-t-8 border-brand-danger shadow-xl">
                             <p class="font-bold text-brand-light text-xl">IBM, Autodesk, SAP</p>
-                            <!-- CORRECCIÓN: Se ha eliminado 'opacity-0' de esta línea -->
                             <p id="counter-3" class="font-display text-7xl font-bold text-brand-danger my-2">Miles</p>
                             <p class="text-xl font-bold text-brand-danger">de roles reestructurados</p>
                             <p class="mt-1 text-brand-muted">hacia la automatización.</p>
@@ -474,30 +457,23 @@
         <!-- ======== TEACHER AUGMENTATION (CON PARALLAX CORREGIDO FINAL) ======== -->
         <section id="teacher-augmentation-section" class="relative bg-brand-dark py-24 sm:py-32 overflow-hidden">
 
-            <!-- Contenedor del Fondo Parallax (Capa 0) -->
             <div class="absolute inset-0 z-0 flex items-start lg:items-center justify-center">
-                <!-- CORRECCIÓN: Se reemplaza 'h-full' por 'min-w-full min-h-full' para asegurar cobertura total -->
                 <img id="teacher-parallax-bg" src="assets/profesor-augmentado.png"
                     alt="Profesor aumentado en un entorno educativo moderno."
                     class="w-full min-w-full min-h-full object-cover scale-200  lg:scale-150">
-                <!-- NOTA: Reduje un poco el scale a 150% para un efecto más sutil, pero puedes volver a 160% si lo prefieres -->
                 <div class="absolute inset-0 bg-brand-dark opacity-80"></div>
             </div>
 
-            <!-- Contenedor del Contenido (Capa 1) -->
             <div class="relative z-10">
                 <div class="container mx-auto px-6 lg:px-8">
 
-                    <!-- Titular Principal de la Sección -->
                     <div class="text-center max-w-4xl mx-auto mb-24">
                         <h2 class="font-display text-4xl sm:text-5xl font-bold text-brand-light">La IA no reemplaza al
                             maestro. <br>Lo ayuda a enseñar mejor.</h2>
                     </div>
 
-                    <!-- Contenedor Flex para las columnas con efecto sticky -->
                     <div class="flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-24">
 
-                        <!-- Columna Izquierda (Fija en Desktop) -->
                         <div class="lg:w-1/3">
                             <div class="lg:sticky top-28">
                                 <p class="text-xl md:text-3xl text-brand-muted"><strong>La pedagogía aumentada</strong>
@@ -510,7 +486,6 @@
                             </div>
                         </div>
 
-                        <!-- Columna Derecha (Contenido con Scroll) -->
                         <div class="lg:w-2/3">
                             <div class="space-y-16 max-w-2xl">
                                 <h3 class="font-display text-3xl font-bold text-brand-light">El resultado:</h3>
@@ -613,7 +588,6 @@
         <section id="remate-section"
             class="relative flex justify-center items-center lg:justify-start aspect-[9/15] md:aspect-square lg:aspect-[16/8] overflow-hidden">
 
-            <!-- Contenedor de la Imagen de Fondo y Capas -->
             <div class="absolute inset-0">
                 <img id="remate-background" src="assets/chicos-desarrollando-apps.png"
                     alt="Un entorno educativo del futuro." class="w-full h-full object-cover scale-110">
@@ -623,7 +597,6 @@
                 </div>
             </div>
 
-            <!-- Contenedor del Contenido de Texto -->
             <div class="relative z-10 w-full container mx-auto px-6 md:px-12 lg:px-16">
                 <div class="max-w-xl text-center lg:text-left">
                     <h2 class="font-display text-4xl sm:text-5xl font-bold text-brand-light">El futuro no espera.
@@ -632,7 +605,6 @@
                     <p class="mt-8 text-2xl text-brand-muted">La revolución educativa no empieza con más materias, sino
                         con una sola clase capaz de transformar la mentalidad de tus alumnos.</p>
 
-                    <!-- FRASE CORREGIDA: MÁS GRANDE Y CON ESTILO DE MARCA -->
                     <h3 class="mt-6 font-display text-3xl font-bold text-brand-light max-w-3xl mx-auto lg:mx-0">
                         Esa clase ya existe:
                     </h3>
@@ -670,7 +642,6 @@
 
     <!-- scripts -->
     <script src="scripts/main.js"></script>
-    <script type="text/javascript" src="https://acumbamail.com/newform/dynamic/js/wxg1VoVbmwI3I70cw1GZ/57316/"></script>
 </body>
 
 </html>

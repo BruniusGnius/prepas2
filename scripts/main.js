@@ -1,158 +1,167 @@
 // scripts/main.js
 
 /**
- * Clase ScrubVideoManager
- * Inspirada en el tutorial de Chris How.
- * Gestiona videos que se reproducen hacia adelante y hacia atrás con el scroll.
+ * Clase que gestiona la animación de video mediante scroll,
+ * siguiendo el patrón del tutorial para un rendimiento óptimo.
  */
 class ScrubVideoManager {
   constructor() {
-    // Solo ejecutar en pantallas de escritorio, donde el efecto es visible.
+    this.scrubVideoWrappers = document.querySelectorAll(".scrub-video-wrapper");
+    if (this.scrubVideoWrappers.length === 0) return;
+
+    // Solo activar en pantallas de escritorio
     if (window.innerWidth < 1024) return;
 
-    this.contenedores = document.querySelectorAll(".scrub-video-wrapper");
-    if (this.contenedores.length === 0) return;
+    this.scrubVideoWrappersData = [];
+    this.activeVideoWrapper = null;
 
-    this.datosVideo = [];
-    this.videoActivo = null;
-
-    // 1. Crear el IntersectionObserver
     const observer = new IntersectionObserver(
       this.intersectionObserverCallback,
       {
-        // Umbral más bajo para detectar el video apenas entra en la vista
-        threshold: 0.1,
+        threshold: 1,
       }
     );
-    observer.contexto = this; // Referencia a la clase para usarla en el callback
+    observer.context = this;
 
-    // 2. Configurar cada video
-    this.contenedores.forEach((contenedor, index) => {
-      const videoContainer = contenedor.querySelector(".scrub-video-container");
+    this.scrubVideoWrappers.forEach((wrapper, index) => {
+      const videoContainer = wrapper.querySelector(".scrub-video-container");
       if (videoContainer) {
         observer.observe(videoContainer);
       }
 
-      contenedor.setAttribute("data-scrub-video-index", index);
-      const video = contenedor.querySelector("video");
-      const cargador = contenedor.querySelector("#video-loader");
+      wrapper.setAttribute("data-scrub-video-index", index);
+      const video = wrapper.querySelector("video");
+      const loader = wrapper.querySelector("#video-loader");
 
-      this.datosVideo[index] = { video, cargador };
-
-      // 3. Forzar la carga del video para un scrubbing sin lag
-      this.fetchVideo(video);
+      this.scrubVideoWrappersData[index] = {
+        video: video,
+        loader: loader,
+      };
+      this.fetchVideo(video, loader);
     });
 
-    // 4. Calcular y almacenar las posiciones de los contenedores
-    // Usamos un pequeño timeout para asegurar que el layout esté completamente calculado
-    setTimeout(() => this.actualizarPosiciones(), 100);
+    this.updateWrapperPositions();
 
-    // 5. Añadir listeners para scroll y resize
-    window.addEventListener("resize", () => this.actualizarPosiciones());
-    document.addEventListener("scroll", (evento) =>
-      this.handleScrollEvent(evento)
+    window.addEventListener("resize", () => this.updateWrapperPositions());
+    document.addEventListener("scroll", (event) =>
+      this.handleScrollEvent(event)
     );
   }
 
-  fetchVideo(videoElement) {
-    const srcWebm = videoElement.getAttribute("data-src-webm");
-    const srcMp4 = videoElement.getAttribute("data-src-mp4");
-    const datos = this.datosVideo.find((d) => d.video === videoElement);
+  fetchVideo(videoElement, loaderElement) {
+    const src = videoElement.getAttribute("src");
+    if (!src) return;
 
-    const cargarFuente = (src) => {
-      return fetch(src)
-        .then((response) => response.blob())
-        .then((blob) => {
-          const objectURL = URL.createObjectURL(blob);
-          videoElement.src = objectURL;
-          if (datos && datos.cargador) {
-            datos.cargador.style.display = "none";
-          }
-        });
-    };
-
-    cargarFuente(srcWebm).catch(() => cargarFuente(srcMp4));
+    fetch(src)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const objectURL = URL.createObjectURL(blob);
+        videoElement.setAttribute("src", objectURL);
+        if (loaderElement) {
+          // Esperar a que el video pueda reproducirse para ocultar el loader
+          videoElement.addEventListener(
+            "canplay",
+            () => {
+              loaderElement.style.display = "none";
+            },
+            { once: true }
+          );
+        }
+      });
   }
 
-  actualizarPosiciones() {
-    this.contenedores.forEach((contenedor, index) => {
-      const rect = contenedor.getBoundingClientRect();
+  updateWrapperPositions() {
+    this.scrubVideoWrappers.forEach((wrapper, index) => {
+      const rect = wrapper.getBoundingClientRect();
       const top = rect.top + window.scrollY;
-      const bottom = top + contenedor.scrollHeight - window.innerHeight;
-      this.datosVideo[index].top = top;
-      this.datosVideo[index].bottom = bottom;
+      const bottom = rect.bottom - window.innerHeight + window.scrollY;
+      this.scrubVideoWrappersData[index].top = top;
+      this.scrubVideoWrappersData[index].bottom = bottom;
     });
   }
 
   intersectionObserverCallback(entries, observer) {
     entries.forEach((entry) => {
-      const contenedor = entry.target.closest(".scrub-video-wrapper");
-      const index = contenedor.getAttribute("data-scrub-video-index");
+      const isWithinViewport = entry.intersectionRatio === 1;
+      entry.target.classList.toggle("in-view", isWithinViewport);
 
-      if (entry.isIntersecting) {
-        observer.contexto.videoActivo = index;
+      if (isWithinViewport) {
+        observer.context.activeVideoWrapper =
+          entry.target.parentNode.getAttribute("data-scrub-video-index");
       } else {
-        if (observer.contexto.videoActivo === index) {
-          observer.contexto.videoActivo = null;
+        if (
+          observer.context.activeVideoWrapper ===
+          entry.target.parentNode.getAttribute("data-scrub-video-index")
+        ) {
+          observer.context.activeVideoWrapper = null;
         }
       }
     });
   }
 
   handleScrollEvent() {
-    if (this.videoActivo === null) return;
+    if (this.activeVideoWrapper !== null) {
+      const activeWrapperData =
+        this.scrubVideoWrappersData[this.activeVideoWrapper];
+      const { top, bottom, video } = activeWrapperData;
 
-    const datos = this.datosVideo[this.videoActivo];
-    const { top, bottom, video } = datos;
+      if (!video || isNaN(video.duration)) return;
 
-    if (!video.duration) return;
+      const progress = Math.max(
+        0,
+        Math.min(0.998, (window.scrollY - top) / (bottom - top))
+      );
 
-    const progreso = Math.max(
-      0,
-      Math.min(0.998, (window.scrollY - top) / (bottom - top))
-    );
-    const tiempo = progreso * video.duration;
-
-    video.currentTime = tiempo;
+      const seekTime = progress * video.duration;
+      video.currentTime = seekTime;
+    }
   }
 }
 
-/**
- * =========================================================================
- *  Inicialización del Código Cuando el DOM está Listo
- * =========================================================================
- */
 document.addEventListener("DOMContentLoaded", () => {
-  // PRIMERO: Inicializamos el gestor de video.
-  new ScrubVideoManager();
-
-  // SEGUNDO: Inicializamos el resto de las animaciones GSAP.
-  // Este código no interfiere con el gestor de video.
   gsap.registerPlugin(ScrollTrigger);
 
-  // Lógica del menú de hamburguesa
+  // --- LÓGICA DEL MENÚ DE HAMBURGUESA ---
   const hamburgerButton = document.getElementById("hamburger-button");
   const mobileMenu = document.getElementById("mobile-menu");
   if (hamburgerButton && mobileMenu) {
-    hamburgerButton.addEventListener("click", () =>
-      mobileMenu.classList.toggle("hidden")
-    );
+    hamburgerButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
     mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
     });
   }
 
-  // Parallax del Hero
+  // --- LÓGICA DEL PARALLAX DEL HERO ---
   const heroBackground = document.getElementById("hero-background");
   if (heroBackground) {
-    gsap.to(heroBackground, {
-      yPercent: -20,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#hero-section",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
+    ScrollTrigger.matchMedia({
+      "(max-width: 1023px)": function () {
+        gsap.to(heroBackground, {
+          xPercent: -15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#hero-section",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      },
+      "(min-width: 1024px)": function () {
+        gsap.to(heroBackground, {
+          yPercent: -20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#hero-section",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
       },
     });
   }
@@ -206,6 +215,12 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   }
+
+  // ==================================================================
+  // --- INICIALIZACIÓN DEL VIDEO MANAGER ---
+  // La vieja lógica de scroll del video ha sido reemplazada por esta clase.
+  new ScrubVideoManager();
+  // ==================================================================
 
   // --- ANIMACIÓN DE CONTADORES CON "IMPACTO DE VIDRIO" ---
   const shakeCard = (cardElement) => {
