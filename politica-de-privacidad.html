@@ -113,42 +113,26 @@
 
 <body class="bg-brand-dark-blue text-brand-muted font-sans">
 
-    <!-- ======== NAVEGACIÓN (REUTILIZADA DE INDEX.HTML) ======== -->
+    <!-- ======== NAVEGACIÓN STICKY RESTAURADA ======== -->
     <nav class="sticky top-0 z-50">
         <div class="flex items-stretch border-b border-brand-navy/50">
-            <!-- BLOQUE IZQUIERDO: Logo y Menú de Escritorio -->
             <div class="flex-grow bg-brand-dark/80 backdrop-blur-sm">
                 <div class="container mx-auto px-6 lg:px-8">
                     <div class="flex h-20 items-center space-x-12">
-                        <!-- Logo -->
                         <a href="/" aria-label="Página de inicio de Gnius Club" class="flex-shrink-0">
-                            <img src="assets/logo-gnius-club.png" alt="Logo de Gnius Club" class="h-auto w-32 md:w-42">
+                            <img src="/assets/logo-gnius-club.png" alt="Logo de Gnius Club" class="h-auto w-32 md:w-42">
                         </a>
-                        <!-- Menú Central (Oculto en móvil) -->
-                        <div class="hidden md:block">
-                            <a href="/#cta"
-                                class="text-brand-light hover:text-brand-cyan font-bold transition-colors whitespace-nowrap">
-                                Item1
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- BLOQUE DERECHO: CTA -->
             <div class="flex-shrink-0 bg-brand-dark/80 backdrop-blur-sm">
                 <div class="flex h-full items-center px-6 lg:px-8">
-                    <!-- Grupo de CTA para Escritorio (Oculto en móvil) -->
-                    <div class="hidden md:flex items-center space-x-6">
-                        <p class="hidden lg:block font-display text-brand-yellow text-lg font-bold whitespace-nowrap">
-                            Quiero revolucionar mi colegio
-                        </p>
-                        <a href="/#cta"
-                            class="bg-brand-action-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-action-blue-hover transition-colors whitespace-nowrap">
-                            Únete Ahora
+                    <div class="hidden md:flex items-center">
+                        <a href="/"
+                            class="text-brand-light font-bold px-6 py-3 rounded-lg hover:text-brand-gold transition-colors whitespace-nowrap">
+                            Volver al Inicio
                         </a>
                     </div>
-                    <!-- Botón de Hamburguesa para Móvil (Oculto en escritorio) -->
                     <div class="md:hidden">
                         <button id="hamburger-button" aria-label="Abrir menú"
                             class="text-brand-light focus:outline-none">
@@ -162,18 +146,11 @@
                 </div>
             </div>
         </div>
-
-        <!-- Menú Desplegable para Móvil -->
         <div id="mobile-menu"
             class="hidden absolute top-20 left-0 right-0 z-40 bg-brand-dark/95 backdrop-blur-sm h-screen">
             <div class="flex flex-col items-center space-y-8 pt-16 px-6">
-                <a href="/#cta" class="text-brand-light hover:text-brand-cyan font-bold text-2xl transition-colors">
-                    Sesión para Directores
-                </a>
-                <a href="/#cta" class=" bg-brand-action-blue text-white font-bold text-xl px-10 py-4 rounded-lg
-                    hover:bg-brand-action-blue-hover transition-colors">
-                    Únete Ahora
-                </a>
+                <a href="/" class="text-brand-light hover:text-brand-gold font-bold text-2xl transition-colors">Volver
+                    al Inicio</a>
             </div>
         </div>
     </nav>
@@ -295,20 +272,20 @@
     <footer class="py-12 border-t border-brand-navy/50 bg-brand-pure-black">
         <div class="container mx-auto px-6 lg:px-8 text-center">
             <a href="/" aria-label="Página de inicio de Gnius Club">
-                <img src="assets/logo-animado-gnius-club.gif" alt="Logo de Gnius Club" class="h-32 w-auto mx-auto">
+                <img src="/assets/logo-animado-gnius-club.gif" alt="Logo de Gnius Club" class="h-32 w-auto mx-auto">
             </a>
             <!-- NUEVA SECCIÓN DE CONTACTO -->
-            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-brand-muted">
-                <a href="https://wa.me/522218481116" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center gap-2 hover:text-brand-light transition-colors">
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-brand-muted ">
+                <a href="https://wa.me/522218481116" target="_blank" rel="noopener noreferrer 
+                " class="flex items-center gap-2 hover:text-brand-light transition-colors underline">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.267.655 4.395 1.906 6.215l-1.036 3.787 3.849-1.002z" />
                     </svg>
-                    <span class="text-brand-cyan underline underline-offset-4">(+52) 221 848 1116</span>
+                    <span>(+52) 221 848 1116</span>
                 </a>
                 <a href="mailto:info@gnius.club"
-                    class="flex items-center gap-2 hover:text-brand-light transition-colors">
+                    class="flex items-center gap-2 hover:text-brand-light transition-colors underline">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
@@ -318,11 +295,12 @@
             </div>
 
             <div class="mt-6 flex justify-center space-x-6 text-brand-muted">
-                <a href="#" class="hover:text-brand-light transition-colors">Términos y Condiciones</a>
-                <a href="/politica-de-privacidad.html" class="hover:text-brand-light transition-colors">Política de
+                <!-- <a href="#" class="hover:text-brand-light transition-colors underline">Términos y Condiciones</a> -->
+                <a href="/politica-de-privacidad.html"
+                    class="hover:text-brand-light transition-colors underline">Política de
                     Privacidad</a>
             </div>
-            <p class="mt-6 text-sm text-brand-muted/70">&copy; 2025 Gnius Club. Todos los derechos reservados.</p>
+            <p class="mt-6 text-sm text-brand-muted/70">&copy; 2026 Gnius Club. Todos los derechos reservados.</p>
         </div>
     </footer>
 
