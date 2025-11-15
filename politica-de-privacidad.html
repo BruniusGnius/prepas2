@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth">
+
+<head>
+    <!-- ============== SEO FUNDAMENTAL ============== -->
+    <meta name="description"
+        content="Consulta la política de privacidad de Gnius Club. Conoce cómo recabamos, usamos y protegemos tus datos personales de acuerdo con la ley.">
+    <meta name="keywords"
+        content="política de privacidad, aviso de privacidad, protección de datos, datos personales, Gnius Club, derechos ARCO, seguridad de la información">
+    <link rel="canonical" href="https://www.gnius.club/politica-de-privacidad.html"> <!-- SUSTITUIR CON TU URL REAL -->
+
+    <!-- ============== OPEN GRAPH PROTOCOL (PARA REDES SOCIALES) ============== -->
+    <meta property="og:title" content="Política de Privacidad | Gnius Club">
+    <meta property="og:description"
+        content="En Gnius Club, la seguridad de tu información es nuestra prioridad. Conoce cómo protegemos y gestionamos tus datos personales.">
+    <meta property="og:image" content="https://www.gnius.club/assets/og-image-gnius-club.jpg">
+    <!-- Se utiliza la misma imagen principal para consistencia de marca -->
+    <meta property="og:url" content="https://www.gnius.club/politica-de-privacidad.html">
+    <!-- SUSTITUIR CON TU URL REAL -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- ============== TWITTER CARD (PARA X) ============== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Política de Privacidad | Gnius Club">
+    <meta name="twitter:description"
+        content="En Gnius Club, la seguridad de tu información es nuestra prioridad. Conoce cómo protegemos y gestionamos tus datos personales.">
+    <meta name="twitter:image" content="https://www.gnius.club/assets/og-image-gnius-club.jpg">
+
+    <!-- <FAVICON> -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+    <!-- ============== DATOS ESTRUCTURADOS (SCHEMA JSON-LD PARA SGE) ============== -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Política de Privacidad de Gnius Club",
+          "url": "https://www.gnius.club/politica-de-privacidad.html",
+          "description": "Detalles sobre el tratamiento y protección de datos personales por parte de Gnius Club.",
+          "publisher": {
+            "@type": "EducationalOrganization",
+            "name": "Gnius Club",
+            "url": "https://www.gnius.club/",
+            "logo": "https://www.gnius.club/assets/logo-gnius-club.png"
+          }
+        }
+    </script>
+    <!-- ============== FIN DEL BLOQUE SEO / OG / SGE ============== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | Gnius Club</title>
+
+    <!-- ============== RECURSOS EXTERNOS ============== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@700&family=Saira:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- NOTA: GSAP no es estrictamente necesario en esta página, pero se mantiene para la funcionalidad del menú móvil y consistencia general -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- ============== CONFIGURACIÓN DE TAILWIND (PALETA NARRATIVA FINAL) ============== -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0D1117',
+                        'brand-navy': '#161B22',
+                        'brand-light': '#F0F6FC',
+                        'brand-muted': '#C9D1D9',
+                        'brand-action-blue': '#3B82F6',
+                        'brand-action-blue-hover': '#2563EB',
+                        'brand-danger': '#c60014',
+                        'brand-gold': '#FBBF24',
+                        'brand-yellow': '#FFC700',
+                        'brand-purple': '#8B5CF6',
+                        'brand-cyan': '#00C2FF',
+                        'brand-yellow-dark': '#1F1A00',
+                        'brand-purple-dark': '#161321',
+                        'brand-cyan-dark': '#0F1F24',
+                        'brand-blue': '#0f2036',
+                        'brand-dark-blue': '#010526',
+                        'brand-pure-black': '#000'
+                    },
+                    fontFamily: {
+                        'sans': ['Saira', 'sans-serif'],
+                        'display': ['Saira Semi Condensed', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-danger': '0 0 15px 3px rgba(198, 0, 20, 0.4)',
+                        'glow-blue': '0 0 15px 3px rgba(59, 130, 246, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-dark-blue text-brand-muted font-sans">
+
+    <!-- ======== NAVEGACIÓN (REUTILIZADA DE INDEX.HTML) ======== -->
+    <nav class="sticky top-0 z-50">
+        <div class="flex items-stretch border-b border-brand-navy/50">
+            <!-- BLOQUE IZQUIERDO: Logo y Menú de Escritorio -->
+            <div class="flex-grow bg-brand-dark/80 backdrop-blur-sm">
+                <div class="container mx-auto px-6 lg:px-8">
+                    <div class="flex h-20 items-center space-x-12">
+                        <!-- Logo -->
+                        <a href="/" aria-label="Página de inicio de Gnius Club" class="flex-shrink-0">
+                            <img src="assets/logo-gnius-club.png" alt="Logo de Gnius Club" class="h-auto w-32 md:w-42">
+                        </a>
+                        <!-- Menú Central (Oculto en móvil) -->
+                        <div class="hidden md:block">
+                            <a href="/#cta"
+                                class="text-brand-light hover:text-brand-cyan font-bold transition-colors whitespace-nowrap">
+                                Item1
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOQUE DERECHO: CTA -->
+            <div class="flex-shrink-0 bg-brand-dark/80 backdrop-blur-sm">
+                <div class="flex h-full items-center px-6 lg:px-8">
+                    <!-- Grupo de CTA para Escritorio (Oculto en móvil) -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <p class="hidden lg:block font-display text-brand-yellow text-lg font-bold whitespace-nowrap">
+                            Quiero revolucionar mi colegio
+                        </p>
+                        <a href="/#cta"
+                            class="bg-brand-action-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-action-blue-hover transition-colors whitespace-nowrap">
+                            Únete Ahora
+                        </a>
+                    </div>
+                    <!-- Botón de Hamburguesa para Móvil (Oculto en escritorio) -->
+                    <div class="md:hidden">
+                        <button id="hamburger-button" aria-label="Abrir menú"
+                            class="text-brand-light focus:outline-none">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16m-7 6h7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable para Móvil -->
+        <div id="mobile-menu"
+            class="hidden absolute top-20 left-0 right-0 z-40 bg-brand-dark/95 backdrop-blur-sm h-screen">
+            <div class="flex flex-col items-center space-y-8 pt-16 px-6">
+                <a href="/#cta" class="text-brand-light hover:text-brand-cyan font-bold text-2xl transition-colors">
+                    Sesión para Directores
+                </a>
+                <a href="/#cta" class=" bg-brand-action-blue text-white font-bold text-xl px-10 py-4 rounded-lg
+                    hover:bg-brand-action-blue-hover transition-colors">
+                    Únete Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======== CONTENIDO PRINCIPAL DE LA PÁGINA ======== -->
+    <main class="bg-brand-dark-blue">
+        <section class="py-24 sm:py-32">
+            <div class="container mx-auto px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Encabezado -->
+                    <div class="text-center border-b border-brand-navy pb-8">
+                        <h1 class="font-display text-4xl sm:text-5xl font-bold text-brand-light">Política de Privacidad
+                        </h1>
+
+                    </div>
+
+                    <!-- Contenido de las políticas -->
+                    <div class="mt-12 space-y-10 text-lg text-brand-muted leading-relaxed">
+                        <div>
+                            <h2 class="font-display text-2xl font-bold text-brand-cyan mb-4">RESPONSABLE DE LA
+                                PROTECCIÓN DE SUS DATOS PERSONALES</h2>
+                            <p>Gnius Space A. C., conocido como Gnius Club, con domicilio en 1a. Norte Oriente No. 310,
+                                Colonia Centro, Tuxtla Gutiérrez, Chiapas, es responsable de recabar sus datos
+                                personales, del uso que se le dé a los mismos y de su protección.</p>
+                        </div>
+
+                        <div>
+                            <h2 class="font-display text-2xl font-bold text-brand-cyan mb-4">¿PARA QUÉ FINES RECABAMOS Y
+                                UTILIZAMOS SUS DATOS PERSONALES?</h2>
+                            <p>Sus datos personales serán utilizados para las siguientes finalidades:</p>
+                            <ul class="list-disc list-inside mt-4 space-y-2 pl-4">
+                                <li>Proveer los servicios y productos requeridos por usted.</li>
+                                <li>Informar sobre cambios o nuevos productos o servicios que estén relacionados con el
+                                    contratado o adquirido por el cliente.</li>
+                                <li>Dar cumplimiento a obligaciones contraídas con nuestros clientes.</li>
+                                <li>Evaluar la calidad del servicio.</li>
+                                <li>Realizar estudios internos sobre hábitos de consumo.</li>
+                            </ul>
+                            <p class="mt-4">Para tales finalidades, podemos recabar sus datos personales de distintas
+                                formas: cuando usted nos los proporciona directamente; cuando visita nuestro sitio de
+                                internet o utiliza nuestros servicios en línea, y cuando obtenemos información a través
+                                de otras fuentes que están permitidas por la ley. Nos comprometemos a que dichos datos
+                                serán tratados bajo las más estrictas medidas de seguridad que garanticen su
+                                confidencialidad.</p>
+                            <p class="mt-4">Los datos del menor, padres y tutores que obtenemos por estos medios pueden
+                                ser, entre otros:</p>
+                            <ul class="list-none mt-4 space-y-3 pl-4">
+                                <li><strong class="text-brand-light">DATOS DE IDENTIFICACIÓN:</strong> Nombre completo,
+                                    fecha de nacimiento, nacionalidad, domicilio, CURP, teléfono, correo electrónico,
+                                    estado civil.</li>
+                                <li><strong class="text-brand-light">DATOS DE SALUD:</strong> Tipo de sangre, estado de
+                                    salud, enfermedades, información relacionada con cuestiones de carácter psicológico
+                                    y/o psiquiátrico y alergias.</li>
+                                <li><strong class="text-brand-light">DATOS FINANCIEROS:</strong> Todos los datos
+                                    personales referentes a cuentas bancarias, así como información fiscal en caso de
+                                    solicitar facturación electrónica.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2 class="font-display text-2xl font-bold text-brand-cyan mb-4">¿CÓMO ACCEDER O RECTIFICAR
+                                SUS DATOS PERSONALES O CANCELAR U OPONERSE A SU USO?</h2>
+                            <p>Usted tiene derecho a acceder a los datos personales que de usted poseemos y a los
+                                detalles del tratamiento de los mismos, así como a rectificarlos en caso de ser
+                                inexactos o incompletos; cancelarlos cuando considere que no se requieren para alguna de
+                                las finalidades señaladas en el presente aviso de privacidad, estén siendo utilizados
+                                para finalidades no consentidas o haya finalizado la relación contractual o de servicio,
+                                o bien, oponerse al tratamiento de los mismos para fines específicos. Los mecanismos que
+                                se han implementado para el ejercicio de dichos derechos son a través de nuestra
+                                aplicación web con su usuario y contraseña.</p>
+                            <p class="mt-4">En todo momento usted podrá revocar el consentimiento que nos ha otorgado
+                                para el tratamiento de sus datos personales, a fin de que dejemos de hacer uso de los
+                                mismos. En un plazo máximo de una semana atenderemos su petición y le informaremos sobre
+                                la procedencia de la misma a través del medio seleccionado en el formulario.</p>
+                        </div>
+
+                        <div>
+                            <h2 class="font-display text-2xl font-bold text-brand-cyan mb-4">TRANSFERENCIA DE DATOS</h2>
+                            <p>Sus datos personales pueden ser transferidos y tratados por personas distintas a esta
+                                empresa. En ese sentido, su información puede ser compartida con despachos de cobranza
+                                para realizar el cobro de servicios proporcionados que no hayan sido liquidados. Nos
+                                comprometemos a no transferir su información personal a terceros sin su consentimiento,
+                                salvo las excepciones previstas en el artículo 37 de la Ley Federal de Protección de
+                                Datos Personales en Posesión de los Particulares, así como a realizar esta transferencia
+                                en los términos que fija esa ley. Si usted no manifiesta su oposición para que sus datos
+                                personales sean transferidos, se entenderá que ha otorgado su consentimiento para ello.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h2 class="font-display text-2xl font-bold text-brand-cyan mb-4">MODIFICACIONES AL AVISO DE
+                                PRIVACIDAD</h2>
+                            <p>Nos reservamos el derecho de efectuar en cualquier momento modificaciones o
+                                actualizaciones al presente aviso de privacidad,para la atención de novedades
+                                legislativas, políticas internas o nuevos requerimientos para la prestación u
+                                ofrecimiento de nuestros servicios o productos. Estas modificaciones estarán disponibles
+                                al público a través de nuestra página de internet en la sección Aviso de privacidad, o
+                                se las haremos llegar al último correo electrónico que nos haya proporcionado.</p>
+                        </div>
+
+                        <div>
+                            <h2 class="font-display text-2xl font-bold text-brand-cyan mb-4">QUEJAS Y DENUNCIAS</h2>
+                            <p>Si usted considera que su derecho de protección de datos personales ha sido lesionado por
+                                alguna conducta de nuestros empleados o de nuestras actuaciones o respuestas o presume
+                                que en el tratamiento de sus datos personales existe alguna violación a las
+                                disposiciones previstas en la Ley Federal de Protección de Datos Personales en Posesión
+                                de los Particulares, podrá interponer la queja o denuncia correspondiente ante el IFAI.
+                                Para mayor información visite www.ifai.org.mx.</p>
+                        </div>
+                        <p class="mt-4 text-lg text-brand-muted">Fecha de última actualización:<br>20 de enero de 2020
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======== FOOTER (ACTUALIZADO CON DATOS DE CONTACTO) ======== -->
+    <footer class="py-12 border-t border-brand-navy/50 bg-brand-pure-black">
+        <div class="container mx-auto px-6 lg:px-8 text-center">
+            <a href="/" aria-label="Página de inicio de Gnius Club">
+                <img src="assets/logo-animado-gnius-club.gif" alt="Logo de Gnius Club" class="h-32 w-auto mx-auto">
+            </a>
+            <!-- NUEVA SECCIÓN DE CONTACTO -->
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-brand-muted">
+                <a href="https://wa.me/522218481116" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-2 hover:text-brand-light transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.267.655 4.395 1.906 6.215l-1.036 3.787 3.849-1.002z" />
+                    </svg>
+                    <span class="text-brand-cyan underline underline-offset-4">(+52) 221 848 1116</span>
+                </a>
+                <a href="mailto:info@gnius.club"
+                    class="flex items-center gap-2 hover:text-brand-light transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                    <span>info@gnius.club</span>
+                </a>
+            </div>
+
+            <div class="mt-6 flex justify-center space-x-6 text-brand-muted">
+                <a href="#" class="hover:text-brand-light transition-colors">Términos y Condiciones</a>
+                <a href="/politica-de-privacidad.html" class="hover:text-brand-light transition-colors">Política de
+                    Privacidad</a>
+            </div>
+            <p class="mt-6 text-sm text-brand-muted/70">&copy; 2025 Gnius Club. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="scripts/main.js"></script>
+
+</body>
+
+</html>

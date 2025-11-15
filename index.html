@@ -32,6 +32,14 @@
     <!-- Opcional: Si tienes una cuenta de X para Gnius Club, reemplaza @TuUsuarioDeX -->
     <!-- <meta name="twitter:site" content="@TuUsuarioDeX"> -->
 
+    <!-- <FAVICON> -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+
     <!-- ============== DATOS ESTRUCTURADOS (SCHEMA JSON-LD PARA SGE) ============== -->
     <script type="application/ld+json">
 {
@@ -68,7 +76,7 @@
 
     <!-- ============== RECURSOS EXTERNOS ============== -->
     <!-- Preload es opcional aquí ya que JS lo manejará, pero no hace daño -->
-    <link rel="preload" as="video" href="assets/gnius-club-video-inteligencia-para-el-bien.mp4">
+    <link rel="preload" as="video" href="/assets/gnius-club-video-inteligencia-para-el-bien.mp4">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,13 +144,12 @@
                     <div class="flex h-20 items-center space-x-12">
                         <!-- Logo -->
                         <a href="/" aria-label="Página de inicio de Gnius Club" class="flex-shrink-0">
-                            <img src="assets/logo-gnius-club.png" alt="Logo de Gnius Club" class="h-auto w-32 md:w-42">
+                            <img src="/assets/logo-gnius-club.png" alt="Logo de Gnius Club" class="h-auto w-32 md:w-42">
                         </a>
                         <!-- Menú Central (Oculto en móvil) -->
                         <div class="hidden md:block">
                             <a href="#cta"
                                 class="text-brand-light hover:text-brand-gold font-bold transition-colors whitespace-nowrap">
-                                Item 1
                             </a>
                         </div>
                     </div>
@@ -200,7 +207,7 @@
         class="relative flex justify-center items-center lg:justify-start aspect-[9/15] md:aspect-square lg:aspect-[16/8] overflow-hidden">
 
         <div class="absolute inset-0">
-            <img id="hero-background" src="assets/alumnos-deficit-cognitivo.png"
+            <img id="hero-background" src="/assets/alumnos-deficit-cognitivo.png"
                 alt="Alumnos de preparatoria usando inteligencia artificial de forma básica y con deficit cognitivo"
                 class="w-full h-full object-cover scale-110">
 
@@ -252,9 +259,9 @@
 
                 <!-- Video/Poster de fondo (Capa 0) -->
                 <!-- El poster se mostrará en todas las pantallas. El src solo se usará en escritorio. -->
-                <video id="bg-video" playsinline muted poster="assets/poster-video-inteligencia-para-el-bien.jpg"
+                <video id="bg-video" playsinline muted poster="/assets/poster-video-inteligencia-para-el-bien.jpg"
                     alt="Estudiantes de Gnius Club colaborando en un proyecto de inteligencia artificial."
-                    src="assets/gnius-club-video-inteligencia-para-el-bien.mp4"
+                    src="/assets/gnius-club-video-inteligencia-para-el-bien.mp4"
                     class="absolute inset-0 w-full h-full object-cover"></video>
 
                 <!-- Overlay oscuro (Capa 1) -->
@@ -307,7 +314,7 @@
         <section id="cta"
             class="relative py-20 sm:py-24 overflow-hidden mt-16 min-h-[40vh] md:min-h-[38vh] lg:min-h-[55vh] flex items-center justify-center">
             <div class="absolute inset-0">
-                <img id="cta-background" src="assets/alumnos-presentando-app.jpg"
+                <img id="cta-background" src="/assets/alumnos-presentando-app.jpg"
                     alt="Alumnos presentando una app desarrollada con Vibe Coding e IA"
                     class="w-full h-full object-cover scale-140">
                 <div class="absolute inset-0 bg-brand-dark-blue opacity-80"></div>
@@ -329,7 +336,7 @@
         <!-- ======== PROBLEM (URGENCIA) ======== -->
         <section class=" bg-brand-dark  py-12 lg:py-16 sm:py-32">
             <div class="container mb-12 lg:mb-24 mx-auto">
-                <video class="mx-auto" src="assets/bienvenidos-inteligencia-para-el-bien.mp4" autoplay muted loop
+                <video class="mx-auto" src="/assets/bienvenidos-inteligencia-para-el-bien.mp4" autoplay muted loop
                     preload="auto"
                     alt="Aula de un salón con un director dando la bienvenida y señalando los datos que aparecen abajo en el texto"></video>
             </div>
@@ -447,7 +454,7 @@
                         </div>
                     </div>
                     <div class="lg:w-1/2">
-                        <img src="assets/exposicion-app-builder.jpg"
+                        <img src="/assets/exposicion-app-builder.jpg"
                             alt="Estudiantes presentando una app en desarrollo a su profesor mediante una laptop para evaluación"
                             class="rounded-lg shadow-xl w-full">
                     </div>
@@ -462,10 +469,10 @@
                         <div
                             class="bg-brand-yellow-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-yellow ">
                             <!-- CAMBIO CLAVE: Se ajusta el ancho y alto de la imagen para cada breakpoint -->
-                            <!-- <img src="assets/ingenieria.jpg" alt="Ilustración de ingeniería aplicada"
+                            <!-- <img src="/assets/ingenieria.jpg" alt="Ilustración de ingeniería aplicada"
                                 class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"> -->
                             <video class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"
-                                src="assets/alumnos-resolviendo-problema-en-pizarra.mp4" muted autoplay loop></video>
+                                src="/assets/alumnos-resolviendo-problema-en-pizarra.mp4" muted autoplay loop></video>
                             <div class="p-8 flex flex-col flex-grow">
 
                                 <h4 class="font-display text-3xl text-brand-yellow">Ingeniería aplicada</h4>
@@ -489,10 +496,10 @@
                         <!-- PILAR 2: AUTOMATIZACIÓN DE AGENTES -->
                         <div
                             class="bg-brand-purple-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-purple ">
-                            <!-- <img src="assets/automatizacion.png" alt="Ilustración de automatización de agentes"
+                            <!-- <img src="/assets/automatizacion.png" alt="Ilustración de automatización de agentes"
                                 class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"> -->
                             <video class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"
-                                src="assets/chica-trabajando-en-automatizaciones-por-medio-de-nodos.mp4" muted autoplay
+                                src="/assets/chica-trabajando-en-automatizaciones-por-medio-de-nodos.mp4" muted autoplay
                                 loop alt="Chica trabajando en automatizaciones por medio de nodos"></video>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-purple">Automatización de agentes</h4>
@@ -516,10 +523,10 @@
                         <!-- PILAR 3: DESARROLLO CON IA -->
                         <div
                             class="bg-brand-cyan-dark rounded-lg flex flex-col md:flex-row lg:flex-col overflow-hidden border-b-8 border-brand-cyan ">
-                            <!-- <img src="assets/desarrollo.png" alt="Ilustración de desarrollo con IA"
+                            <!-- <img src="/assets/desarrollo.png" alt="Ilustración de desarrollo con IA"
                                 class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"> -->
                             <video class="w-full md:w-2/5 lg:w-full h-48 md:h-full lg:h-48 object-cover"
-                                src="assets/Alumno-presentando-app-terminada.mp4" muted autoplay loop
+                                src="/assets/Alumno-presentando-app-terminada.mp4" muted autoplay loop
                                 alt="Alumno presentando app terminada"></video>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h4 class="font-display text-3xl text-brand-cyan">Desarrollo con IA</h4>
@@ -547,7 +554,7 @@
         <section id="teacher-augmentation-section" class="relative bg-brand-dark py-24 sm:py-32 overflow-hidden">
 
             <div class="absolute inset-0 z-0 flex items-start lg:items-center justify-center">
-                <img id="teacher-parallax-bg" src="assets/profesor-augmentado.png"
+                <img id="teacher-parallax-bg" src="/assets/profesor-augmentado.png"
                     alt="Profesor aumentado en un entorno educativo moderno."
                     class="w-full min-w-full min-h-full object-cover scale-200  lg:scale-150">
                 <div class="absolute inset-0 bg-brand-dark opacity-80"></div>
@@ -642,7 +649,7 @@
         <section class="bg-brand-blue py-24 sm:py-32">
             <div class="container mx-auto px-6 lg:px-8">
                 <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
-                    <img src="assets/wsa-logo.svg" alt="Logo del World Summit Award de la ONU"
+                    <img src="/assets/wsa-logo.svg" alt="Logo del World Summit Award de la ONU"
                         class="h-auto w-3/5 max-w-xs sm:w-48 md:w-60">
                     <p class="mt-8 font-display font-bold text-3xl sm:text-4xl text-brand-light">
                         Reconocido por la <em class="text-brand-gold">World Summit Award de la&nbsp;ONU</em> como
@@ -656,7 +663,7 @@
         <!-- ======== SOCIAL PROOF (WSA/ONU) - SECCIÓN 2: DETALLES ======== -->
         <section class="bg-brand-dark py-24 sm:py-32">
             <div class="container mx-auto px-6 lg:px-8 text-center flex flex-col items-center">
-                <img src="assets/chicas-trabajando-en-un-sensor-de-limpieza-de-agua.png"
+                <img src="/assets/chicas-trabajando-en-un-sensor-de-limpieza-de-agua.png"
                     alt="Chicas trabajando en un sensor de limpieza de agua, para solucionar un ODS de la ONU"
                     class="rounded-lg shadow-xl aspect-[16/8] object-cover w-full max-w-6xl">
                 <div class="max-w-4xl mx-auto mt-16">
@@ -679,7 +686,7 @@
 
             <div class="absolute inset-0">
                 <img id="remate-background"
-                    src="assets/alumnos-desarrollando-apps-haciendo-vibe-coding-en-colaboracion-con-la-ia.png"
+                    src="/assets/alumnos-desarrollando-apps-haciendo-vibe-coding-en-colaboracion-con-la-ia.png"
                     alt="Estudiantes de preparatoria utilizan la inteligencia artificial como una herramienta colaborativa para programar una aplicación, aplicando su pensamiento crítico para resolver desafíos de código en tiempo real."
                     class="w-full h-full object-cover scale-110">
                 <div class="absolute inset-0 bg-brand-dark/80 mix-blend-multiply lg:hidden"></div>
@@ -716,17 +723,38 @@
 
     </main>
 
-    <!-- ======== FOOTER ======== -->
+    <!-- ======== FOOTER (ACTUALIZADO CON DATOS DE CONTACTO) ======== -->
     <footer class="py-12 border-t border-brand-navy/50 bg-brand-pure-black">
         <div class="container mx-auto px-6 lg:px-8 text-center">
-            <a href="#" aria-label="Página de inicio de Gnius Club">
-                <img src="assets/logo-animado-gnius-club.gif" alt="Logo de Gnius Club" class="h-32 w-auto mx-auto">
+            <a href="/" aria-label="Página de inicio de Gnius Club">
+                <img src="/assets/logo-animado-gnius-club.gif" alt="Logo de Gnius Club" class="h-32 w-auto mx-auto">
             </a>
-            <div class="mt-6 flex justify-center space-x-6 text-brand-muted">
-                <a href="#" class="hover:text-brand-light transition-colors">Términos y Condiciones</a>
-                <a href="#" class="hover:text-brand-light transition-colors">Política de Privacidad</a>
+            <!-- NUEVA SECCIÓN DE CONTACTO -->
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-brand-muted ">
+                <a href="https://wa.me/522218481116" target="_blank" rel="noopener noreferrer 
+                " class="flex items-center gap-2 hover:text-brand-light transition-colors underline">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.267.655 4.395 1.906 6.215l-1.036 3.787 3.849-1.002z" />
+                    </svg>
+                    <span>(+52) 221 848 1116</span>
+                </a>
+                <a href="mailto:info@gnius.club"
+                    class="flex items-center gap-2 hover:text-brand-light transition-colors underline">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                    <span>info@gnius.club</span>
+                </a>
             </div>
-            <p class="mt-6 text-sm text-brand-muted/70">&copy; 2025 Gnius Club. Todos los derechos reservados.</p>
+
+            <div class="mt-6 flex justify-center space-x-6 text-brand-muted">
+                <!-- <a href="#" class="hover:text-brand-light transition-colors underline">Términos y Condiciones</a> -->
+                <a href="/politica-de-privacidad" class="hover:text-brand-light transition-colors underline">Política de
+                    Privacidad</a>
+            </div>
+            <p class="mt-6 text-sm text-brand-muted/70">&copy; 2026 Gnius Club. Todos los derechos reservados.</p>
         </div>
     </footer>
 
