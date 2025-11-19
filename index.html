@@ -2,7 +2,25 @@
 <html lang="es-MX" class="scroll-smooth">
 
 <head>
-
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '727149773762020');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=727149773762020&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <!-- ============== SEO FUNDAMENTAL ============== -->
     <meta name="description"
@@ -130,6 +148,59 @@
             -moz-osx-font-smoothing: grayscale;
 
         }
+
+        /* ================ ESTILOS PARA EL MODAL DE TIDYCAL ================ */
+        .tidycal-overlay {
+            display: none;
+            /* Oculto por defecto */
+            position: fixed;
+            /* Posición fija para cubrir toda la pantalla */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Fondo negro semitransparente */
+            z-index: 1000;
+            /* Un z-index muy alto para estar por encima de todo */
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            /* Espacio para que no se pegue a los bordes en móvil */
+        }
+
+        .tidycal-modal-content {
+            background-color: #000;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            /* Ancho máximo del calendario */
+            max-height: 90vh;
+            /* Altura máxima para que no se salga de la pantalla */
+            overflow-y: auto;
+            /* Permite scroll si el contenido es más alto */
+            border: solid 2px white;
+        }
+
+        .tidycal-close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            line-height: 1;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+            z-index: 1001;
+            /* Encima del contenido del modal */
+        }
+
+        .tidycal-close-button:hover {
+            color: #000;
+        }
     </style>
 </head>
 
@@ -148,8 +219,8 @@
                         </a>
                         <!-- Menú Central (Oculto en móvil) -->
                         <div class="hidden md:block">
-                            <a href="#cta"
-                                class="text-brand-light hover:text-brand-gold font-bold transition-colors whitespace-nowrap">
+                            <a href="#"
+                                class="open-tidycal-modal text-brand-light hover:text-brand-gold font-bold transition-colors whitespace-nowrap">
                             </a>
                         </div>
                     </div>
@@ -165,8 +236,8 @@
                         <p class="hidden lg:block font-display text-brand-yellow text-lg font-bold whitespace-nowrap">
                             Quiero revolucionar mi colegio
                         </p>
-                        <a href="#cta"
-                            class="bg-brand-action-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-action-blue-hover transition-colors whitespace-nowrap">
+                        <a href="#"
+                            class="open-tidycal-modal bg-brand-action-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-action-blue-hover transition-colors whitespace-nowrap">
                             Únete Ahora
                         </a>
                     </div>
@@ -191,10 +262,11 @@
         <div id="mobile-menu"
             class="hidden absolute top-20 left-0 right-0 z-40 bg-brand-dark/95 backdrop-blur-sm h-screen">
             <div class="flex flex-col items-center space-y-8 pt-16 px-6">
-                <a href="#cta" class="text-brand-light hover:text-brand-gold font-bold text-2xl transition-colors">
+                <a href="#"
+                    class="open-tidycal-modal text-brand-light hover:text-brand-gold font-bold text-2xl transition-colors">
                     Sesión para Directores
                 </a>
-                <a href="#cta" class=" bg-brand-action-blue text-white font-bold text-xl px-10 py-4 rounded-lg
+                <a href="#" class="open-tidycal-modal bg-brand-action-blue text-white font-bold text-xl px-10 py-4 rounded-lg
                     hover:bg-brand-action-blue-hover transition-colors">
                     Únete Ahora
                 </a>
@@ -327,7 +399,7 @@
                 <p class="mt-8 text-xl max-w-3xl mx-auto ">Una conversación exclusiva para directores
                     que quieren liderar la innovación educativa con propósito.</p>
                 <a href="#"
-                    class="mt-8 inline-block bg-brand-action-blue text-white font-bold text-lg px-10 py-4 rounded-lg shadow-lg hover:bg-brand-action-blue-hover transition-colors"
+                    class="open-tidycal-modal mt-8 inline-block bg-brand-action-blue text-white font-bold text-lg px-10 py-4 rounded-lg shadow-lg hover:bg-brand-action-blue-hover transition-colors"
                     form-trigger-acm="click_popup_57316_acm">Registrarme
                     a la Sesión</a>
             </div>
@@ -714,7 +786,7 @@
 
                     <div class="mt-16">
                         <a href="#"
-                            class="inline-block bg-brand-action-blue text-white font-bold text-xl px-12 py-5 rounded-lg shadow-lg shadow-glow-blue hover:bg-brand-action-blue-hover transition-all">Únete
+                            class="open-tidycal-modal inline-block bg-brand-action-blue text-white font-bold text-xl px-12 py-5 rounded-lg shadow-lg shadow-glow-blue hover:bg-brand-action-blue-hover transition-all">Únete
                             y Transforma tu Colegio</a>
                     </div>
                 </div>
@@ -758,9 +830,67 @@
             <p class="mt-6 text-sm text-brand-muted/70">&copy; 2026 Gnius Club. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <!-- ================ MODAL DE TIDYCAL (ACTUALIZADO) ================ -->
+    <div id="tidycal-modal-overlay" class="tidycal-overlay">
+        <div class="tidycal-modal-content">
+            <!-- Botón para cerrar el modal -->
+            <span id="cerrar-modal" class="tidycal-close-button">&times;</span>
+
+            <!-- CÓDIGO DE TIDYCAL (CORRECTO) -->
+            <div class="tidycal-embed" data-path="team/ia-para-el-bien/inteligencia-para-el-bien"></div>
+            <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+        </div>
+    </div>
+    <!-- ============ FIN DEL MODAL DE TIDYCAL ============ -->
 
     <!-- scripts -->
     <script src="scripts/main.js"></script>
+    <!-- ================ SCRIPT PARA EL MODAL DE TIDYCAL ================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Seleccionar todos los elementos que deben abrir el modal
+            const openModalButtons = document.querySelectorAll('.open-tidycal-modal');
+            const modalOverlay = document.getElementById('tidycal-modal-overlay');
+            const closeModalButton = document.getElementById('cerrar-modal');
+
+            // Función para mostrar el modal
+            function abrirModal() {
+                if (modalOverlay) {
+                    modalOverlay.style.display = 'flex';
+                }
+            }
+
+            // Función para ocultar el modal
+            function ocultarModal() {
+                if (modalOverlay) {
+                    modalOverlay.style.display = 'none';
+                }
+            }
+
+            // Añadir un listener a CADA botón que tenga la clase '.open-tidycal-modal'
+            openModalButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault(); // Evita el comportamiento por defecto del enlace <a>
+                    abrirModal();
+                });
+            });
+
+            // Cerrar el modal al hacer clic en el botón de cierre (la 'X')
+            if (closeModalButton) {
+                closeModalButton.addEventListener('click', ocultarModal);
+            }
+
+            // Cerrar el modal al hacer clic fuera del contenido (en el overlay)
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', function (event) {
+                    // Se asegura de que el clic fue en el fondo y no en el contenido
+                    if (event.target === modalOverlay) {
+                        ocultarModal();
+                    }
+                });
+            }
+        });
+    </script>
 
 </body>
 
