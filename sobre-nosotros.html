@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '727149773762020');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=727149773762020&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- ============== SEO FUNDAMENTAL ============== -->
+    <meta name="description"
+        content="Conoce la historia de Gnius Club, desde sus inicios con Rudy Laddaga hasta convertirse en líder de innovación educativa digital.">
+    <meta name="keywords"
+        content="Gnius Club, historia, Rudy Laddaga, innovación educativa, tecnología educativa, AI First, educación tecnológica">
+    <link rel="canonical" href="https://www.gnius.club/sobre-nosotros.html"> <!-- SUSTITUIR CON TU URL REAL -->
+
+    <!-- ============== OPEN GRAPH PROTOCOL (PARA REDES SOCIALES) ============== -->
+    <meta property="og:title" content="Sobre Nosotros | Gnius Club">
+    <meta property="og:description"
+        content="Conoce la historia de Gnius Club, desde sus inicios con Rudy Laddaga hasta convertirse en líder de innovación educativa digital.">
+    <meta property="og:image" content="https://www.gnius.club/assets/og-image-gnius-club.jpg">
+    <meta property="og:url" content="https://www.gnius.club/sobre-nosotros.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <!-- ============== TWITTER CARD (PARA X) ============== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sobre Nosotros | Gnius Club">
+    <meta name="twitter:description"
+        content="Conoce la historia de Gnius Club, desde sus inicios con Rudy Laddaga hasta convertirse en líder de innovación educativa digital.">
+    <meta name="twitter:image" content="https://www.gnius.club/assets/og-image-gnius-club.jpg">
+
+    <!-- <FAVICON> -->
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+    <!-- ============== DATOS ESTRUCTURADOS (SCHEMA JSON-LD) ============== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Sobre Nosotros | Gnius Club",
+      "url": "https://www.gnius.club/sobre-nosotros.html",
+      "description": "Historia y misión de Gnius Club.",
+      "mainEntity": {
+        "@type": "EducationalOrganization",
+        "name": "Gnius Club",
+        "founder": {
+            "@type": "Person",
+            "name": "Rudy Laddaga"
+        },
+        "foundingDate": "2016"
+      }
+    }
+    </script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros | Gnius Club</title>
+
+    <!-- ============== RECURSOS EXTERNOS ============== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@700&family=Saira:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- ============== CONFIGURACIÓN DE TAILWIND ============== -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0D1117',
+                        'brand-navy': '#161B22',
+                        'brand-light': '#F0F6FC',
+                        'brand-muted': '#C9D1D9',
+                        'brand-action-blue': '#3B82F6',
+                        'brand-action-blue-hover': '#2563EB',
+                        'brand-danger': '#c60014',
+                        'brand-gold': '#FBBF24',
+                        'brand-yellow': '#FFC700',
+                        'brand-purple': '#8B5CF6',
+                        'brand-cyan': '#00C2FF',
+                        'brand-yellow-dark': '#1F1A00',
+                        'brand-purple-dark': '#161321',
+                        'brand-cyan-dark': '#0F1F24',
+                        'brand-blue': '#0f2036',
+                        'brand-dark-blue': '#010526',
+                        'brand-pure-black': '#000'
+                    },
+                    fontFamily: {
+                        'sans': ['Saira', 'sans-serif'],
+                        'display': ['Saira Semi Condensed', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-danger': '0 0 15px 3px rgba(198, 0, 20, 0.4)',
+                        'glow-blue': '0 0 15px 3px rgba(59, 130, 246, 0.4)',
+                        'glow-cyan': '0 0 20px 5px rgba(0, 194, 255, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Estilos para el modal de TidyCal (copiados de index.html) */
+        .tidycal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .tidycal-modal-content {
+            background-color: #000;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: solid 2px white;
+        }
+
+        .tidycal-close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            line-height: 1;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .tidycal-close-button:hover {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-dark text-brand-muted font-sans">
+
+    <!-- ======== NAVEGACIÓN ======== -->
+    <nav class="sticky top-0 z-50">
+        <div class="flex items-stretch border-b border-brand-navy/50">
+            <div class="flex-grow bg-brand-dark/80 backdrop-blur-sm">
+                <div class="container mx-auto px-6 lg:px-8">
+                    <div class="flex h-20 items-center space-x-12">
+                        <a href="/" aria-label="Página de inicio de Gnius Club" class="flex-shrink-0">
+                            <img src="/assets/logo-gnius-club.png" alt="Logo de Gnius Club" class="h-auto w-32 md:w-42">
+                        </a>
+                        <div class="hidden md:block">
+                            <!-- Espacio para links de escritorio si se necesitan -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-shrink-0 bg-brand-dark/80 backdrop-blur-sm">
+                <div class="flex h-full items-center px-6 lg:px-8">
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="/"
+                            class="text-brand-light hover:text-brand-gold font-bold transition-colors whitespace-nowrap">
+                            Inicio
+                        </a>
+                        <a href="#"
+                            class="open-tidycal-modal bg-brand-action-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-action-blue-hover transition-colors whitespace-nowrap">
+                            Únete Ahora
+                        </a>
+                    </div>
+
+                    <div class="md:hidden">
+                        <button id="hamburger-button" aria-label="Abrir menú"
+                            class="text-brand-light focus:outline-none">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16m-7 6h7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden absolute top-20 left-0 right-0 z-40 bg-brand-dark/95 backdrop-blur-sm h-screen">
+            <div class="flex flex-col items-center space-y-8 pt-16 px-6">
+                <a href="/" class="text-brand-light hover:text-brand-gold font-bold text-2xl transition-colors">
+                    Inicio
+                </a>
+                <a href="#" class="open-tidycal-modal bg-brand-action-blue text-white font-bold text-xl px-10 py-4 rounded-lg
+                    hover:bg-brand-action-blue-hover transition-colors">
+                    Únete Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======== HERO (SOBRE NOSOTROS) ======== -->
+    <header id="hero-section"
+        class="relative flex justify-center items-center aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+
+        <div class="absolute inset-0">
+            <img id="hero-background" src="https://picsum.photos/1920/1080?grayscale"
+                alt="Fondo abstracto de tecnología" class="w-full h-full object-cover scale-110">
+            <div class="absolute inset-0 bg-brand-dark/70 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 w-full container mx-auto px-6 md:px-12 lg:px-16 text-center">
+            <!-- Logo de Gnius Club -->
+            <div class="flex justify-center">
+                <img src="/assets/logotipo-gnius-club.svg" alt="Logo de Gnius Club"
+                    class="h-auto w-64 md:w-96 lg:max-w-2xl lg:w-full">
+            </div>
+
+            <!-- Slogan principal (H1 para SEO) -->
+            <h1 class="text-3xl md:text-4xl lg:text-5xl text-brand-light font-display font-bold max-w-3xl mx-auto">
+                Formando los genios del mañana
+            </h1>
+
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ======== ORIGIN STORY ======== -->
+        <section class="py-24 lg:py-32 relative overflow-hidden"
+            style="background: linear-gradient(135deg, #000000 0%, #0a0e1a 35%, #0f1729 65%, #1a2840 100%);">
+            <div class="container mx-auto px-6 md:px-12 lg:px-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+
+                    <!-- Columna 1 - Texto principal -->
+                    <div class="relative z-10 xl:max-w-md 2xl:max-w-lg">
+                        <p class="font-display text-lg uppercase tracking-widest text-brand-action-blue mb-2">El Origen
+                        </p>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-light mb-6">
+                            Todo comenzó con un niño de&nbsp;<span class="text-brand-action-blue">12&nbsp;años</span>
+                        </h2>
+                        <div class="space-y-6 text-lg text-brand-muted leading-relaxed">
+                            <p>
+                                En 1982, cuando aún no existía internet como lo conocemos, <strong
+                                    class="text-brand-light">Rudy Laddaga</strong> se convirtió en programador con solo
+                                10 años. Aprender programación tan joven le dio una ventaja enorme que marcó su
+                                trayectoria personal, profesional... y educativa.
+                            </p>
+                            <p>
+                                Décadas después, al conocer el caso de Estonia —el país más emprendedor de Europa
+                                gracias a su sistema educativo tecnológico—, Rudy
+                                comprendió que la educación no solo debía incluir tecnología, sino ponerla al servicio
+                                de los niños como una herramienta de transformación.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Columna 2 - Frase destacada -->
+                    <div class="relative z-10 xl:max-w-md 2xl:max-w-lg">
+                        <!-- Kicker -->
+                        <p class="font-display text-lg uppercase tracking-widest text-brand-gold mb-4">
+                            La visión era clara:
+                        </p>
+
+                        <!-- Quote -->
+                        <div class="border-l-4 border-brand-gold pl-6 py-2 mb-8">
+                            <p
+                                class="text-xl md:text-2xl font-display font-bold text-brand-light italic leading-relaxed">
+                                "Si un niño puede aprender a programar a los 12 y cambiar su vida, ¿qué pasaría si
+                                todos los niños tuvieran esa oportunidad... pero con un propósito social?"
+                            </p>
+                        </div>
+
+                        <!-- Imagen para MOBILE - en el flujo del documento -->
+                        <div class="lg:hidden flex justify-center -mb-24">
+                            <img class="w-3/4 h-auto block" src="/assets/about-us/adolsecente-compu.png"
+                                alt="Adolescente programando">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Imagen para DESKTOP/TABLET - Posicionada absolutamente -->
+                <!-- Se ajusta la posición right según el breakpoint -->
+                <!-- lg: 1024-1279px (42% ancho, 5% del borde derecho) -->
+                <!-- xl: 1280-1536px (38% ancho, 5% del borde derecho) - 8% más grande -->
+                <!-- 2xl: >1536px (33% ancho, 2% del borde derecho) - 8% más grande -->
+                <img class="hidden lg:block absolute bottom-0 right-[5%] 2xl:right-[2%] w-[42%] xl:w-[38%] 2xl:w-[33%] h-auto pointer-events-none"
+                    style="margin-bottom: 0; padding-bottom: 0;" src="/assets/about-us/adolsecente-compu.png"
+                    alt="Adolescente programando">
+            </div>
+
+        </section>
+
+        <!-- ======== 2016: NACE GNIUS CLUB ======== -->
+        <section class="py-24 bg-brand-navy relative overflow-hidden">
+            <!-- Elementos decorativos de fondo -->
+            <div
+                class="absolute top-0 right-0 w-96 h-96 bg-brand-action-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-96 h-96 bg-brand-purple/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2">
+            </div>
+
+            <div class="container mx-auto px-6 lg:px-8 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="font-display text-lg uppercase tracking-widest text-brand-gold mb-2">Nuestra Fundación</p>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-light mb-8">
+                        2016: Nace <span class="text-brand-gold">Gnius Club</span>
+                    </h2>
+                    <p class="text-2xl text-brand-muted mb-12">
+                        El primer laboratorio de innovación digital educativa en México, con una misión revolucionaria:
+                    </p>
+
+                    <div
+                        class="bg-brand-dark/50 backdrop-blur-md border border-brand-muted/20 p-10 rounded-2xl shadow-xl mb-12 transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="font-display text-3xl md:text-4xl font-bold text-brand-cyan leading-tight">
+                            Formar a la próxima generación de creadores, no solo usuarios, de tecnología.
+                        </h3>
+                    </div>
+
+                    <p class="text-xl text-brand-muted">
+                        No queríamos ser otro proveedor de "clases de robótica". Queríamos redefinir qué significa la
+                        educación tecnológica en el siglo XXI.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== RECONOCIMIENTOS Y VALIDACIÓN GLOBAL ======== -->
+        <section class="py-24 bg-brand-dark">
+            <div class="container mx-auto px-6 lg:px-8">
+
+                <!-- Rudy Laddaga -->
+                <div class="mb-24">
+                    <div class="text-center mb-16">
+                        <p class="font-display text-lg uppercase tracking-widest text-brand-danger mb-2">Trayectoria</p>
+                        <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-light">
+                            Reconocimientos y <span class="text-brand-danger">Validación Global</span>
+                        </h2>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row gap-12 items-start">
+                        <!-- Rudy Profile -->
+                        <div class="lg:w-1/3 w-full flex flex-col items-center lg:items-start sticky top-24">
+                            <img src="https://picsum.photos/400/500?random=2" alt="Rudy Laddaga"
+                                class="rounded-xl shadow-lg w-full max-w-sm object-cover mb-6">
+                            <h3 class="font-display text-2xl font-bold text-brand-light">🏅 Rudy Laddaga</h3>
+                            <p class="text-brand-gold font-bold">Fundador y Visionario</p>
+                        </div>
+
+                        <!-- Award Cards Grid -->
+                        <div class="lg:w-2/3 w-full grid grid-cols-1 gap-6">
+
+                            <!-- Card 1 -->
+                            <div
+                                class="bg-brand-navy p-6 rounded-lg border-l-4 border-brand-gold hover:bg-brand-navy/80 transition-colors flex flex-col md:flex-row items-center gap-6">
+                                <div
+                                    class="w-full md:w-32 h-32 flex-shrink-0 bg-brand-dark/50 rounded-lg flex items-center justify-center overflow-hidden">
+                                    <!-- Placeholder Logo -->
+                                    <img src="https://picsum.photos/150/150?random=10" alt="Logo ONU"
+                                        class="w-full h-full object-contain p-2">
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <h4 class="font-bold text-brand-light text-xl mb-2">World Summit Award de la ONU
+                                    </h4>
+                                    <p class="text-brand-muted">Ganador en la Categoría Educación</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div
+                                class="bg-brand-navy p-6 rounded-lg border-l-4 border-brand-action-blue hover:bg-brand-navy/80 transition-colors flex flex-col md:flex-row items-center gap-6">
+                                <div
+                                    class="w-full md:w-32 h-32 flex-shrink-0 bg-brand-dark/50 rounded-lg flex items-center justify-center overflow-hidden">
+                                    <img src="https://picsum.photos/150/150?random=11" alt="Logo WSA"
+                                        class="w-full h-full object-contain p-2">
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <h4 class="font-bold text-brand-light text-xl mb-2">World Summit Awards</h4>
+                                    <p class="text-brand-muted">Nacional Expert for Digital Content</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div
+                                class="bg-brand-navy p-6 rounded-lg border-l-4 border-brand-danger hover:bg-brand-navy/80 transition-colors flex flex-col md:flex-row items-center gap-6">
+                                <div
+                                    class="w-full md:w-32 h-32 flex-shrink-0 bg-brand-dark/50 rounded-lg flex items-center justify-center overflow-hidden">
+                                    <img src="https://picsum.photos/150/150?random=12" alt="Logo SEP"
+                                        class="w-full h-full object-contain p-2">
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <h4 class="font-bold text-brand-light text-xl mb-2">Reconocimiento oficial SEP</h4>
+                                    <p class="text-brand-muted">Con RVOE para programas de innovación digital</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div
+                                class="bg-brand-navy p-6 rounded-lg border-l-4 border-brand-purple hover:bg-brand-navy/80 transition-colors flex flex-col md:flex-row items-center gap-6">
+                                <div
+                                    class="w-full md:w-32 h-32 flex-shrink-0 bg-brand-dark/50 rounded-lg flex items-center justify-center overflow-hidden">
+                                    <img src="https://picsum.photos/150/150?random=13" alt="Logo COPARMEX"
+                                        class="w-full h-full object-contain p-2">
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <h4 class="font-bold text-brand-light text-xl mb-2">Emprendimiento del Año</h4>
+                                    <p class="text-brand-muted">Por COPARMEX</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div
+                                class="bg-brand-navy p-6 rounded-lg border-l-4 border-brand-cyan hover:bg-brand-navy/80 transition-colors flex flex-col md:flex-row items-center gap-6">
+                                <div
+                                    class="w-full md:w-32 h-32 flex-shrink-0 bg-brand-dark/50 rounded-lg flex items-center justify-center overflow-hidden">
+                                    <img src="https://picsum.photos/150/150?random=14" alt="Logo Instituto Irrazonable"
+                                        class="w-full h-full object-contain p-2">
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <h4 class="font-bold text-brand-light text-xl mb-2">Instituto Irrazonable</h4>
+                                    <p class="text-brand-muted">Seleccionado como uno de los proyectos de mayor impacto
+                                        social en México</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 6 (New) -->
+                            <div
+                                class="bg-brand-navy p-6 rounded-lg border-l-4 border-brand-gold hover:bg-brand-navy/80 transition-colors flex flex-col md:flex-row items-center gap-6">
+                                <div
+                                    class="w-full md:w-32 h-32 flex-shrink-0 bg-brand-dark/50 rounded-lg flex items-center justify-center overflow-hidden">
+                                    <img src="https://picsum.photos/150/150?random=15" alt="Logo LATAM"
+                                        class="w-full h-full object-contain p-2">
+                                </div>
+                                <div class="text-center md:text-left">
+                                    <h4 class="font-bold text-brand-light text-xl mb-2">Líder en innovación educativa
+                                    </h4>
+                                    <p class="text-brand-muted">Digital en América Latina</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Red Global -->
+                <div class="bg-brand-dark-blue rounded-3xl p-8 md:p-16 border border-brand-navy shadow-2xl">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <p class="font-display text-lg uppercase tracking-widest text-brand-action-blue mb-2">Alcance
+                            Internacional</p>
+                        <h3 class="font-display text-3xl md:text-4xl font-bold text-brand-light mb-4">🌍 Nuestra Red
+                            Global</h3>
+                        <p class="text-xl text-brand-muted">
+                            Contamos con una red de más de <strong class="text-brand-light">300 expertos
+                                internacionales</strong> en inteligencia artificial, tecnología educativa y ciudadanía
+                            digital, que nos ayudan a validar, actualizar y mejorar constantemente nuestros contenidos.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="flex items-center gap-4 p-4 bg-brand-dark/50 rounded-lg">
+                            <div
+                                class="w-12 h-12 bg-brand-light/10 rounded-full flex items-center justify-center text-2xl">
+                                🇺🇸</div>
+                            <p class="font-bold text-brand-light">Universidad de Harvard</p>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-brand-dark/50 rounded-lg">
+                            <div
+                                class="w-12 h-12 bg-brand-light/10 rounded-full flex items-center justify-center text-2xl">
+                                🇬🇭</div>
+                            <p class="font-bold text-brand-light">ICT4Development (Ghana)</p>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-brand-dark/50 rounded-lg">
+                            <div
+                                class="w-12 h-12 bg-brand-light/10 rounded-full flex items-center justify-center text-2xl">
+                                🇳🇿</div>
+                            <p class="font-bold text-brand-light">Auckland University of Technology</p>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-brand-dark/50 rounded-lg">
+                            <div
+                                class="w-12 h-12 bg-brand-light/10 rounded-full flex items-center justify-center text-2xl">
+                                🇦🇺</div>
+                            <p class="font-bold text-brand-light">i4T Global (Australia)</p>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-brand-dark/50 rounded-lg">
+                            <div
+                                class="w-12 h-12 bg-brand-light/10 rounded-full flex items-center justify-center text-2xl">
+                                🇩🇪</div>
+                            <p class="font-bold text-brand-light">GIZ (Alemania)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======== EL FUTURO QUE ESTAMOS CONSTRUYENDO ======== -->
+        <section class="py-24 bg-brand-dark relative">
+            <div class="container mx-auto px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                    <div class="lg:w-1/2">
+                        <p class="font-display text-lg uppercase tracking-widest text-brand-purple mb-2">Visión 2026</p>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-light mb-6">
+                            El futuro que estamos <span class="text-brand-purple">construyendo</span>
+                        </h2>
+                        <div class="space-y-6 text-lg text-brand-muted leading-relaxed">
+                            <p>
+                                Hoy, Gnius Club lidera una nueva era educativa. Y apenas comenzamos.
+                            </p>
+                            <p>
+                                <strong class="text-brand-light">En 2026 lanzaremos</strong> la primera <strong
+                                    class="text-brand-purple">incubadora de innovación digital para niños en
+                                    México</strong>, donde nuestros estudiantes crearán soluciones reales para problemas
+                                reales, colaborando con empresas, ONGs y gobiernos.
+                            </p>
+                            <div class="mt-8">
+                                <p class="text-2xl font-display font-bold text-brand-light">
+                                    Nuestro objetivo no es solo transformar la clase de tecnología.
+                                </p>
+                                <p class="text-3xl font-display font-bold text-brand-gold mt-2">
+                                    Es transformar el propósito mismo de la escuela.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-glow-cyan">
+                            <img src="https://picsum.photos/800/600?random=3" alt="Futuro de la educación"
+                                class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== ÚNETE A LA REVOLUCIÓN (CTA) ======== -->
+        <section id="cta-section"
+            class="relative py-24 overflow-hidden flex items-center justify-center min-h-[60vh] bg-brand-dark-blue">
+            <!-- Parallax removed as requested, using solid background -->
+
+            <div class="relative z-10 container mx-auto px-6 lg:px-8 text-center">
+                <h2 class="font-display text-4xl md:text-6xl font-bold text-brand-light mb-8">
+                    Únete a la <span class="text-brand-gold">Revolución</span>
+                </h2>
+
+                <div class="mt-20 max-w-6xl mx-auto flex flex-col md:flex-row justify-center gap-8 mb-12">
+                    <!-- Card 1: Miles -->
+                    <div
+                        class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-action-blue/10 rounded-lg p-6 border-b-8 border-brand-action-blue shadow-xl relative opacity-30">
+                        <!-- Checkmark badge -->
+                        <div class="achievement-badge absolute -top-4 -right-4 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shadow-lg opacity-0 scale-0"
+                            data-badge-index="0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-brand-light text-xl">Estudiantes</p>
+                        <p id="counter-4" class="font-display text-7xl font-bold text-brand-action-blue my-2">Miles</p>
+                        <p class="text-xl font-bold text-brand-action-blue">han vivido</p>
+                        <p class="mt-1 text-brand-muted">esta transformación educativa.</p>
+                    </div>
+                    <!-- Card 2: 50+ -->
+                    <div
+                        class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-action-blue/10 rounded-lg p-6 border-b-8 border-brand-action-blue shadow-xl relative opacity-30">
+                        <!-- Checkmark badge -->
+                        <div class="achievement-badge absolute -top-4 -right-4 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shadow-lg opacity-0 scale-0"
+                            data-badge-index="1">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-brand-light text-xl">Colegios</p>
+                        <div class="flex justify-center items-center gap-1 my-2">
+                            <span class="font-display text-5xl font-bold text-brand-action-blue">+</span>
+                            <p id="counter-5" class="font-display text-7xl font-bold text-brand-action-blue">0</p>
+                        </div>
+                        <p class="text-xl font-bold text-brand-action-blue">confían</p>
+                        <p class="mt-1 text-brand-muted">en nuestra visión.</p>
+                    </div>
+                    <!-- Card 3: 300+ -->
+                    <div
+                        class="flex-1 lg:max-w-xs flex flex-col text-center bg-brand-action-blue/10 rounded-lg p-6 border-b-8 border-brand-action-blue shadow-xl relative opacity-30">
+                        <!-- Checkmark badge -->
+                        <div class="achievement-badge absolute -top-4 -right-4 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shadow-lg opacity-0 scale-0"
+                            data-badge-index="2">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-brand-light text-xl">Expertos Globales</p>
+                        <div class="flex justify-center items-center gap-1 my-2">
+                            <span class="font-display text-5xl font-bold text-brand-action-blue">+</span>
+                            <p id="counter-6" class="font-display text-7xl font-bold text-brand-action-blue">0</p>
+                        </div>
+                        <p class="text-xl font-bold text-brand-action-blue">validan</p>
+                        <p class="mt-1 text-brand-muted">nuestro enfoque.</p>
+                    </div>
+                </div>
+
+                <p class="text-xl md:text-2xl text-brand-muted max-w-3xl mx-auto mb-12">
+                    Si tú también crees que la educación debe preparar a los estudiantes para <strong
+                        class="text-brand-light">crear con sentido, innovar con ética y liderar con
+                        inteligencia</strong>, te invitamos a sumarte.
+                </p>
+
+                <div class="space-y-8">
+                    <p class="font-display text-3xl md:text-4xl font-bold text-brand-light">
+                        La revolución pedagógica ya comenzó.<br>
+                        <span class="text-brand-action-blue">Ahora falta que tú la lideres.</span>
+                    </p>
+
+                    <a href="#"
+                        class="open-tidycal-modal inline-block bg-brand-action-blue text-white font-bold text-xl px-12 py-5 rounded-lg shadow-lg shadow-glow-blue hover:bg-brand-action-blue-hover transition-all transform hover:scale-105">
+                        Únete Ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="py-12 border-t border-brand-navy/50 bg-brand-pure-black">
+        <div class="container mx-auto px-6 lg:px-8 text-center">
+            <a href="/" aria-label="Página de inicio de Gnius Club">
+                <img src="/assets/logo-animado-gnius-club.gif" alt="Logo de Gnius Club" class="h-32 w-auto mx-auto">
+            </a>
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-brand-muted">
+                <a href="https://wa.me/522218481116" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-2 hover:text-brand-light transition-colors underline">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.267.655 4.395 1.906 6.215l-1.036 3.787 3.849-1.002z" />
+                    </svg>
+                    <span>(+52) 221 848 1116</span>
+                </a>
+                <a href="mailto:info@gnius.club"
+                    class="flex items-center gap-2 hover:text-brand-light transition-colors underline">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+                    </svg>
+                    <span>info@gnius.club</span>
+                </a>
+            </div>
+            <div class="mt-6 flex justify-center space-x-6 text-brand-muted">
+                <a href="/politica-de-privacidad.html"
+                    class="hover:text-brand-light transition-colors underline">Política de
+                    Privacidad</a>
+            </div>
+            <p class="mt-6 text-sm text-brand-muted/70">&copy; 2026 Gnius Club. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ======== SCRIPTS ======== -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sobre-nosotros-counters.js"></script>
+
+</body>
+
+</html>
